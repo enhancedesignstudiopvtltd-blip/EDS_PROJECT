@@ -12,9 +12,13 @@ import {
   Camera,
   Lock
 } from 'lucide-react';
-import hvacImage from '@/assets/hvac-systems.jpg';
-import electricalImage from '@/assets/electrical-panels.jpg';
-import fireImage from '@/assets/fire-safety.jpg';
+import hvacImage from '@/assets/services/hvac.png';
+import electricalImage from '@/assets/services/electrical.png';
+import lightingImage from '@/assets/services/lighting.png';
+import upsImage from '@/assets/services/ups.png';
+import itPassiveImage from '@/assets/services/it-passive.png';
+import bmsImage from '@/assets/services/bms.png';
+import fireImage from '@/assets/services/fire-safety.png';
 
 const Services = () => {
   const designServices = [
@@ -34,25 +38,25 @@ const Services = () => {
       icon: Lightbulb,
       title: 'Lighting Design',
       description: 'Lux level design, fixture layout, emergency lighting, controls',
-      image: null
+      image: lightingImage
     },
     {
       icon: Battery,
       title: 'UPS Systems',
       description: 'Load analysis, UPS sizing, backup configuration, system integration',
-      image: null
+      image: upsImage
     },
     {
       icon: Wifi,
       title: 'IT Passive Infrastructure',
       description: 'Structured cabling, rack layout, data/voice points, telecom room design',
-      image: null
+      image: itPassiveImage
     },
     {
       icon: Building,
       title: 'BMS Integration',
       description: 'System integration, control strategies, I/O schedules',
-      image: null
+      image: bmsImage
     },
     {
       icon: Shield,

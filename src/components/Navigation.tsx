@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import logoImage from '@/assets/logo.jpg';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,6 +32,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
+            <img 
+              src={logoImage} 
+              alt="DesignEdge MEP Logo" 
+              className="h-12 w-auto mr-3 object-contain"
+            />
             <div className="text-2xl font-heading font-bold text-primary">
               Design<span className="text-accent">Edge</span>
               <span className="ml-2 text-base font-normal">MEP</span>

@@ -10,6 +10,7 @@ import {
   Facebook,
   ArrowUp
 } from 'lucide-react';
+import logoImage from '@/assets/logo.jpg';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -41,9 +42,16 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div>
-              <div className="text-2xl font-heading font-bold mb-2">
-                Design<span className="text-accent">Edge</span>
-                <span className="ml-2 text-lg font-normal">MEP</span>
+              <div className="flex items-center mb-4">
+                <img 
+                  src={logoImage} 
+                  alt="DesignEdge MEP Logo" 
+                  className="h-8 w-auto mr-2 object-contain"
+                />
+                <div className="text-2xl font-heading font-bold">
+                  Design<span className="text-accent">Edge</span>
+                  <span className="ml-2 text-lg font-normal">MEP</span>
+                </div>
               </div>
               <p className="text-white/80 font-body text-sm leading-relaxed">
                 Leading MEP consultancy delivering integrated solutions with 
