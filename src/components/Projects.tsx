@@ -1,7 +1,17 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Building2, MapPin, Calendar, Users } from 'lucide-react';
+import { MapPin, Calendar, Users } from 'lucide-react';
+import logisticsImage from '@/assets/projects/logistics.jpg';
+import coworkingImage from '@/assets/projects/coworking.jpg';
+import corporateImage from '@/assets/projects/corporate.jpg';
+import technologyImage from '@/assets/projects/technology.jpg';
+import analyticsImage from '@/assets/projects/analytics.jpg';
+import automotiveImage from '@/assets/projects/automotive.jpg';
+import realestateImage from '@/assets/projects/realestate.jpg';
+import certificationImage from '@/assets/projects/certification.jpg';
+import financeImage from '@/assets/projects/finance.jpg';
+import mediaImage from '@/assets/projects/media.jpg';
 
 const Projects = () => {
   const projects = [
@@ -24,21 +34,38 @@ const Projects = () => {
     { name: 'Persistent Bhagheerath', category: 'Technology', location: 'Pune', year: '2023' }
   ];
 
+  const getCategoryImage = (category: string) => {
+    const imageMap = {
+      'Logistics': logisticsImage,
+      'Co-working': coworkingImage,
+      'Corporate': corporateImage,
+      'Technology': technologyImage,
+      'Analytics': analyticsImage,
+      'Automotive': automotiveImage,
+      'Real Estate': realestateImage,
+      'Certification': certificationImage,
+      'Finance': financeImage,
+      'Banking': financeImage,
+      'Media': mediaImage
+    };
+    return imageMap[category as keyof typeof imageMap] || corporateImage;
+  };
+
   const getCategoryColor = (category: string) => {
     const colors = {
-      'Logistics': 'bg-blue-100 text-blue-800',
-      'Co-working': 'bg-green-100 text-green-800',
-      'Corporate': 'bg-purple-100 text-purple-800',
-      'Technology': 'bg-indigo-100 text-indigo-800',
-      'Analytics': 'bg-cyan-100 text-cyan-800',
-      'Automotive': 'bg-red-100 text-red-800',
-      'Real Estate': 'bg-orange-100 text-orange-800',
-      'Certification': 'bg-teal-100 text-teal-800',
-      'Finance': 'bg-emerald-100 text-emerald-800',
-      'Banking': 'bg-yellow-100 text-yellow-800',
-      'Media': 'bg-pink-100 text-pink-800'
+      'Logistics': 'bg-blue-500/90 text-white',
+      'Co-working': 'bg-green-500/90 text-white',
+      'Corporate': 'bg-purple-500/90 text-white',
+      'Technology': 'bg-indigo-500/90 text-white',
+      'Analytics': 'bg-cyan-500/90 text-white',
+      'Automotive': 'bg-red-500/90 text-white',
+      'Real Estate': 'bg-orange-500/90 text-white',
+      'Certification': 'bg-teal-500/90 text-white',
+      'Finance': 'bg-emerald-500/90 text-white',
+      'Banking': 'bg-yellow-500/90 text-white',
+      'Media': 'bg-pink-500/90 text-white'
     };
-    return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800';
+    return colors[category as keyof typeof colors] || 'bg-gray-500/90 text-white';
   };
 
   return (
@@ -79,44 +106,54 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index}
-              className="card-hover border-0 shadow-card bg-white group"
+              className="card-hover border-0 shadow-card overflow-hidden group"
               style={{ animationDelay: `${index * 0.05}s` }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent group-hover:scale-110 transition-transform duration-300">
-                    <Building2 className="w-6 h-6 text-white" />
-                  </div>
-                  <Badge className={`${getCategoryColor(project.category)} border-0`}>
-                    {project.category}
-                  </Badge>
+              <div className="relative h-64 overflow-hidden">
+                {/* Project Image */}
+                <img 
+                  src={getCategoryImage(project.category)} 
+                  alt={`${project.name} workspace`}
+                  className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-300"
+                />
+                
+                {/* Category Badge */}
+                <Badge className={`absolute top-4 right-4 ${getCategoryColor(project.category)} border-0 shadow-lg`}>
+                  {project.category}
+                </Badge>
+                
+                {/* SITC Project Badge */}
+                <div className="absolute top-4 left-4 bg-accent/90 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                  SITC Project
                 </div>
                 
-                <h3 className="text-lg font-heading font-semibold text-primary mb-3 group-hover:text-accent transition-colors">
-                  {project.name}
-                </h3>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    {project.location}
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Completed in {project.year}
+                {/* Overlay with Project Info */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h3 className="text-xl font-heading font-bold mb-2 group-hover:text-accent transition-colors">
+                      {project.name}
+                    </h3>
+                    
+                    <div className="space-y-1 mb-3">
+                      <div className="flex items-center text-sm text-white/90">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        {project.location}
+                      </div>
+                      <div className="flex items-center text-sm text-white/90">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        Completed in {project.year}
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="flex items-center text-white/80">
+                        <Users className="w-3 h-3 mr-1" />
+                        MEP Systems
+                      </span>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="mt-4 pt-4 border-t border-border">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
-                    <span className="flex items-center">
-                      <Users className="w-3 h-3 mr-1" />
-                      MEP Systems
-                    </span>
-                    <span className="text-accent font-medium">SITC Project</span>
-                  </div>
-                </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>

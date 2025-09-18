@@ -12,13 +12,13 @@ import {
   Camera,
   Lock
 } from 'lucide-react';
-import hvacImage from '@/assets/services/hvac.png';
-import electricalImage from '@/assets/services/electrical.png';
-import lightingImage from '@/assets/services/lighting.png';
-import upsImage from '@/assets/services/ups.png';
-import itPassiveImage from '@/assets/services/it-passive.png';
-import bmsImage from '@/assets/services/bms.png';
-import fireImage from '@/assets/services/fire-safety.png';
+import hvacImage from '@/assets/services/hvac-realistic.jpg';
+import electricalImage from '@/assets/services/electrical-realistic.jpg';
+import lightingImage from '@/assets/services/lighting-realistic.jpg';
+import upsImage from '@/assets/services/ups-realistic.jpg';
+import itPassiveImage from '@/assets/services/it-passive-realistic.jpg';
+import bmsImage from '@/assets/services/bms-realistic.jpg';
+import fireImage from '@/assets/services/fire-safety-realistic.jpg';
 
 const Services = () => {
   const designServices = [
