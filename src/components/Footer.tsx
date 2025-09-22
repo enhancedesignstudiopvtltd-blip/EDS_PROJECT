@@ -37,20 +37,20 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-white">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="container mx-auto container-mobile section-padding">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Company Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 sm:col-span-2 lg:col-span-1">
             <div>
-              <div className="flex items-center mb-4">
+              <div className="flex items-center mb-3 sm:mb-4">
                 <img 
                   src={logoImage} 
                   alt="Design Edge MEP LLP Logo" 
-                  className="h-8 w-auto mr-2 object-contain"
+                  className="h-6 sm:h-8 w-auto mr-2 object-contain"
                 />
-                <div className="text-2xl font-heading font-bold">
+                <div className="text-xl sm:text-2xl font-heading font-bold">
                   Design<span className="text-accent">Edge</span>
-                  <span className="ml-2 text-lg font-normal">MEP LLP</span>
+                  <span className="ml-1 sm:ml-2 text-base sm:text-lg font-normal">MEP LLP</span>
                 </div>
               </div>
               <p className="text-white/80 font-body text-sm leading-relaxed">
@@ -59,21 +59,21 @@ const Footer = () => {
               </p>
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               <div className="flex items-center space-x-3 text-sm">
-                <Mail className="w-4 h-4 text-accent" />
+                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
                 <div className="space-y-1">
                   <div className="font-body">sales@designedgemep.com</div>
                   <div className="font-body">projects@designedgemep.com</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 text-sm">
-                <Phone className="w-4 h-4 text-accent" />
+                <Phone className="w-4 h-4 text-accent flex-shrink-0" />
                 <span className="font-body">+91 9504322143</span>
               </div>
               <div className="flex items-start space-x-3 text-sm">
-                <MapPin className="w-4 h-4 text-accent mt-0.5" />
-                <span className="font-body">
+                <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                <span className="font-body leading-relaxed">
                   Office No. 511C, C-Wing, Baitunnoor, Kurla West, Mumbai, Maharashtra, 400070
                 </span>
               </div>
@@ -82,13 +82,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-6">Our Services</h3>
-            <ul className="space-y-3">
+            <h3 className="text-base sm:text-lg font-heading font-semibold mb-4 sm:mb-6">Our Services</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
                   <a 
                     href="#services"
-                    className="text-white/80 hover:text-accent transition-colors font-body text-sm"
+                    className="text-white/80 hover:text-accent transition-colors font-body text-sm inline-block py-1"
                   >
                     {service}
                   </a>
@@ -99,13 +99,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-base sm:text-lg font-heading font-semibold mb-4 sm:mb-6">Quick Links</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href}
-                    className="text-white/80 hover:text-accent transition-colors font-body text-sm"
+                    className="text-white/80 hover:text-accent transition-colors font-body text-sm inline-block py-1"
                   >
                     {link.name}
                   </a>
@@ -116,37 +116,37 @@ const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-6">Connect With Us</h3>
-            <div className="space-y-4">
-              <p className="text-white/80 font-body text-sm">
+            <h3 className="text-base sm:text-lg font-heading font-semibold mb-4 sm:mb-6">Connect With Us</h3>
+            <div className="space-y-3 sm:space-y-4">
+              <p className="text-white/80 font-body text-sm leading-relaxed">
                 Follow us for the latest updates on MEP innovations and projects.
               </p>
               
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 sm:space-x-4">
                 <a 
                   href="#"
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
-                  <Linkedin className="w-5 h-5 text-white group-hover:text-white" />
+                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-white" />
                 </a>
                 <a 
                   href="#"
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
-                  <Twitter className="w-5 h-5 text-white group-hover:text-white" />
+                  <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-white" />
                 </a>
                 <a 
                   href="#"
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
-                  <Facebook className="w-5 h-5 text-white group-hover:text-white" />
+                  <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-white" />
                 </a>
               </div>
               
               <Card className="bg-white/10 border-0 backdrop-blur-sm">
-                <div className="p-4">
+                <div className="p-3 sm:p-4">
                   <div className="flex items-center space-x-3">
-                    <Building className="w-5 h-5 text-accent" />
+                    <Building className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
                     <div>
                       <div className="text-sm font-body font-medium">24/7 Emergency Support</div>
                       <div className="text-xs text-white/70">Quick response for critical MEP issues</div>
@@ -159,18 +159,18 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-8 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-white/60 font-body text-sm text-center md:text-left">
+        <div className="border-t border-white/20 pt-6 sm:pt-8 mt-6 sm:mt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0">
+            <div className="text-white/60 font-body text-xs sm:text-sm text-center md:text-left">
               © 2024 Design Edge MEP LLP. All rights reserved. | Privacy Policy | Terms of Service
             </div>
             
             <button 
               onClick={scrollToTop}
-              className="flex items-center space-x-2 text-white/80 hover:text-accent transition-colors font-body text-sm group"
+              className="flex items-center space-x-2 text-white/80 hover:text-accent transition-colors font-body text-xs sm:text-sm group btn-touch"
             >
               <span>Back to top</span>
-              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUp className="w-3 h-3 sm:w-4 sm:h-4 group-hover:-translate-y-1 transition-transform" />
             </button>
           </div>
         </div>

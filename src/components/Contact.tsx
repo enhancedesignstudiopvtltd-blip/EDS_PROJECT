@@ -84,23 +84,23 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-section">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
+    <section id="contact" className="section-padding bg-gradient-section">
+      <div className="container mx-auto container-mobile">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-up">
+          <h2 className="text-responsive-xl font-heading font-bold text-primary mb-4 sm:mb-6 px-2">
             Let's Connect & <span className="text-accent">Build Together</span>
           </h2>
-          <p className="text-xl font-body text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-responsive-base font-body text-muted-foreground max-w-3xl mx-auto px-4">
             Ready to transform your space with world-class MEP solutions? 
             Get in touch with our experts today.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
-          <div className="space-y-8 animate-fade-up">
+          <div className="space-y-6 sm:space-y-8 animate-fade-up">
             <div>
-              <h3 className="text-2xl font-heading font-semibold text-primary mb-6">
+              <h3 className="text-xl sm:text-2xl font-heading font-semibold text-primary mb-4 sm:mb-6">
                 Get In Touch
               </h3>
               
@@ -187,7 +187,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="p-6 pt-0">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="font-body font-medium text-foreground">
                         Full Name *
@@ -200,7 +200,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Your full name"
                         required
-                        className="font-body"
+                        className="font-body input-touch"
                       />
                     </div>
                     <div className="space-y-2">
@@ -215,7 +215,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="+91 XXXXX XXXXX"
                         required
-                        className="font-body"
+                        className="font-body input-touch"
                       />
                     </div>
                   </div>
@@ -232,7 +232,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
                       required
-                      className="font-body"
+                      className="font-body input-touch"
                     />
                   </div>
                   
@@ -247,8 +247,8 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Tell us about your MEP requirements, project timeline, and any specific needs..."
                       required
-                      rows={5}
-                      className="font-body resize-none"
+                      rows={4}
+                      className="font-body resize-none input-touch"
                     />
                   </div>
                   
@@ -263,7 +263,7 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-accent hover:shadow-accent text-white font-heading font-semibold py-3"
+                    className="w-full btn-touch bg-gradient-accent hover:shadow-accent text-white font-heading font-semibold"
                   >
                     {isSubmitting ? (
                       <>

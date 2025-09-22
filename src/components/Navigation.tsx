@@ -26,20 +26,20 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-lg border-b border-border shadow-card' : 'bg-white/90 backdrop-blur-sm'
+      isScrolled ? 'bg-white/95 backdrop-blur-lg border-b border-border shadow-card' : 'bg-white/95 backdrop-blur-lg'
     }`}>
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto container-mobile py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <img 
               src={logoImage} 
               alt="Design Edge MEP LLP Logo" 
-              className="h-12 w-auto mr-3 object-contain"
+              className="h-8 sm:h-10 md:h-12 w-auto mr-2 sm:mr-3 object-contain"
             />
-            <div className="text-2xl font-heading font-bold text-primary">
+            <div className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-primary">
               Design<span className="text-accent">Edge</span>
-              <span className="ml-2 text-base font-normal">MEP LLP</span>
+              <span className="ml-1 sm:ml-2 text-sm sm:text-base font-normal">MEP LLP</span>
             </div>
           </div>
 
@@ -58,39 +58,39 @@ const Navigation = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
-            <Button variant="default" className="bg-gradient-accent hover:shadow-accent hover:scale-105 transition-all duration-300">
+            <Button className="btn-touch bg-gradient-accent hover:shadow-accent hover:scale-105 transition-all duration-300">
               Get Quote
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+            className="md:hidden p-2 sm:p-3 rounded-lg hover:bg-secondary transition-colors btn-touch"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-primary" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             ) : (
-              <Menu className="w-6 h-6 text-primary" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-background/95 backdrop-blur-lg rounded-lg border border-border shadow-card animate-fade-up">
-            <div className="flex flex-col space-y-4 px-4">
+          <div className="md:hidden mt-3 sm:mt-4 py-4 bg-background/95 backdrop-blur-lg rounded-lg border border-border shadow-card animate-fade-up">
+            <div className="flex flex-col space-y-1 px-4">
               {navigationItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="font-body font-medium text-primary hover:text-accent transition-colors py-2 border-b border-border/50 last:border-0"
+                  className="font-body font-medium text-primary hover:text-accent transition-colors py-3 border-b border-border/50 last:border-0 btn-touch text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
-              <Button variant="default" className="bg-gradient-accent mt-4">
+              <Button className="btn-touch bg-gradient-accent mt-4 w-full">
                 Get Quote
               </Button>
             </div>
