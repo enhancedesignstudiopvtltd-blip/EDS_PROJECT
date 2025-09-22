@@ -13,7 +13,7 @@ const Hero = () => {
           alt="Modern MEP Engineering Building"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 hero-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-primary/40"></div>
       </div>
 
       {/* Hero Content */}
@@ -29,26 +29,25 @@ const Hero = () => {
               <span className="text-accent font-bold italic">...leave it to us!!!</span>
             </p>
             <p className="text-xl md:text-2xl font-body font-light opacity-90">
-              DesignEdge MEP Consultancy & Build Solutions | HVAC, Electrical, Fire Safety & BMS Integration
+              Design Edge MEP LLP Consultancy & Build Solutions | HVAC, Electrical, Fire Safety & BMS Integration
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-right">
             <Button 
-              size="lg"
-              className="bg-gradient-accent hover:shadow-accent text-white font-heading font-semibold px-8 py-4 text-lg group"
+              size="xl" 
+              variant="hero"
+              className="animate-fade-up animation-delay-500 hover:scale-105 hover:shadow-2xl transition-all duration-300 group"
             >
               Let's Redefine Spaces Together
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
             </Button>
-            
             <Button 
+              size="xl" 
               variant="outline"
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-body px-8 py-4 text-lg"
+              className="text-white border-white/50 hover:bg-white/20 hover:border-white hover:scale-105 animate-fade-up animation-delay-700 transition-all duration-300"
             >
-              <Play className="mr-2 w-5 h-5" />
-              Watch Our Work
+              Get a Quote
             </Button>
           </div>
         </div>

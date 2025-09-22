@@ -26,7 +26,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-lg border-b border-border shadow-card' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-lg border-b border-border shadow-card' : 'bg-white/90 backdrop-blur-sm'
     }`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -34,12 +34,12 @@ const Navigation = () => {
           <div className="flex items-center">
             <img 
               src={logoImage} 
-              alt="DesignEdge MEP Logo" 
+              alt="Design Edge MEP LLP Logo" 
               className="h-12 w-auto mr-3 object-contain"
             />
             <div className="text-2xl font-heading font-bold text-primary">
               Design<span className="text-accent">Edge</span>
-              <span className="ml-2 text-base font-normal">MEP</span>
+              <span className="ml-2 text-base font-normal">MEP LLP</span>
             </div>
           </div>
 
@@ -49,7 +49,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="font-body font-medium text-foreground hover:text-accent transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className="font-body font-medium text-primary hover:text-accent transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {item.name}
               </a>
@@ -58,7 +58,7 @@ const Navigation = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
-            <Button variant="default" className="bg-gradient-accent hover:shadow-accent">
+            <Button variant="default" className="bg-gradient-accent hover:shadow-accent hover:scale-105 transition-all duration-300">
               Get Quote
             </Button>
           </div>
@@ -69,9 +69,9 @@ const Navigation = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-6 h-6 text-primary" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6 text-primary" />
             )}
           </button>
         </div>
@@ -84,7 +84,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="font-body font-medium text-foreground hover:text-accent transition-colors py-2 border-b border-border/50 last:border-0"
+                  className="font-body font-medium text-primary hover:text-accent transition-colors py-2 border-b border-border/50 last:border-0"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}

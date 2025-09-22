@@ -45,12 +45,12 @@ const Footer = () => {
               <div className="flex items-center mb-4">
                 <img 
                   src={logoImage} 
-                  alt="DesignEdge MEP Logo" 
+                  alt="Design Edge MEP LLP Logo" 
                   className="h-8 w-auto mr-2 object-contain"
                 />
                 <div className="text-2xl font-heading font-bold">
                   Design<span className="text-accent">Edge</span>
-                  <span className="ml-2 text-lg font-normal">MEP</span>
+                  <span className="ml-2 text-lg font-normal">MEP LLP</span>
                 </div>
               </div>
               <p className="text-white/80 font-body text-sm leading-relaxed">
@@ -62,7 +62,10 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-sm">
                 <Mail className="w-4 h-4 text-accent" />
-                <span className="font-body">sales@designedgemep.com</span>
+                <div className="space-y-1">
+                  <div className="font-body">sales@designedgemep.com</div>
+                  <div className="font-body">projects@designedgemep.com</div>
+                </div>
               </div>
               <div className="flex items-center space-x-3 text-sm">
                 <Phone className="w-4 h-4 text-accent" />
@@ -159,7 +162,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 font-body text-sm text-center md:text-left">
-              © 2024 DesignEdge MEP. All rights reserved. | Privacy Policy | Terms of Service
+              © 2024 Design Edge MEP LLP. All rights reserved. | Privacy Policy | Terms of Service
             </div>
             
             <button 

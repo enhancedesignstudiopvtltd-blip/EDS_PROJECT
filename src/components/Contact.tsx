@@ -66,8 +66,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Address',
-      value: 'sales@designedgemep.com',
-      link: 'mailto:sales@designedgemep.com'
+      value: 'sales@designedgemep.com\nprojects@designedgemep.com',
+      link: null
     },
     {
       icon: Globe,
@@ -116,7 +116,22 @@ const Contact = () => {
                           <h4 className="font-body font-semibold text-primary mb-1">
                             {info.title}
                           </h4>
-                          {info.link ? (
+                          {info.title === 'Email Address' ? (
+                            <div className="space-y-1">
+                              <a 
+                                href="mailto:sales@designedgemep.com"
+                                className="block text-muted-foreground hover:text-accent transition-colors font-body"
+                              >
+                                sales@designedgemep.com
+                              </a>
+                              <a 
+                                href="mailto:projects@designedgemep.com"
+                                className="block text-muted-foreground hover:text-accent transition-colors font-body"
+                              >
+                                projects@designedgemep.com
+                              </a>
+                            </div>
+                          ) : info.link ? (
                             <a 
                               href={info.link}
                               className="text-muted-foreground hover:text-accent transition-colors font-body"

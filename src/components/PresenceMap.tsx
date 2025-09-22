@@ -11,16 +11,21 @@ const PresenceMap = () => {
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
 
   const presenceCities = [
-    { name: 'Mumbai', coordinates: [72.8777, 19.0760], type: 'Head Office' },
-    { name: 'Navi Mumbai', coordinates: [73.0297, 19.0330], type: 'Branch Office' },
-    { name: 'Pune', coordinates: [73.8567, 18.5204], type: 'Branch Office' },
-    { name: 'Ahmedabad', coordinates: [72.5714, 23.0225], type: 'Branch Office' },
-    { name: 'Gurugram', coordinates: [77.0266, 28.4595], type: 'Branch Office' },
-    { name: 'New Delhi', coordinates: [77.1025, 28.7041], type: 'Branch Office' },
-    { name: 'Bengaluru', coordinates: [77.5946, 12.9716], type: 'Branch Office' },
-    { name: 'Chennai', coordinates: [80.2707, 13.0827], type: 'Branch Office' },
-    { name: 'Hyderabad', coordinates: [78.4867, 17.3850], type: 'Branch Office' },
-    { name: 'Lucknow', coordinates: [80.9462, 26.8467], type: 'Branch Office' }
+    // India
+    { name: 'Mumbai', coordinates: [72.8777, 19.0760], type: 'headquarters', country: 'India' },
+    { name: 'Pune', coordinates: [73.8567, 18.5204], type: 'office', country: 'India' },
+    { name: 'Delhi', coordinates: [77.1025, 28.7041], type: 'office', country: 'India' },
+    { name: 'Gurgaon', coordinates: [77.0266, 28.4595], type: 'office', country: 'India' },
+    { name: 'Ahmedabad', coordinates: [72.5714, 23.0225], type: 'office', country: 'India' },
+    { name: 'Chennai', coordinates: [80.2707, 13.0827], type: 'office', country: 'India' },
+    { name: 'Hyderabad', coordinates: [78.4867, 17.3850], type: 'office', country: 'India' },
+    { name: 'Bangalore', coordinates: [77.5946, 12.9716], type: 'office', country: 'India' },
+    { name: 'Bihar', coordinates: [85.3131, 25.0961], type: 'office', country: 'India' },
+    { name: 'Lucknow', coordinates: [80.9462, 26.8467], type: 'office', country: 'India' },
+    // International
+    { name: 'Thimphu', coordinates: [89.6419, 27.4728], type: 'international', country: 'Bhutan' },
+    { name: 'Cape Town', coordinates: [18.4241, -33.9249], type: 'international', country: 'South Africa' },
+    { name: 'Dubai', coordinates: [55.2708, 25.2048], type: 'international', country: 'UAE' },
   ];
 
   return (
@@ -28,11 +33,10 @@ const PresenceMap = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-            Our <span className="text-accent">Presence</span> Across India
+            Our Global <span className="text-accent">Presence</span>
           </h2>
           <p className="text-xl font-body text-muted-foreground max-w-3xl mx-auto">
-            Strategically located offices to serve you better with localized expertise 
-            and nationwide coverage for all your MEP requirements.
+            Strategically located across India and internationally to serve our clients with comprehensive MEP solutions
           </p>
         </div>
 
@@ -45,36 +49,70 @@ const PresenceMap = () => {
                   <Building className="w-5 h-5 mr-2 text-accent" />
                   Office Locations
                 </h3>
-                <div className="space-y-3">
-                  {presenceCities.map((city, index) => (
-                    <div 
-                      key={index}
-                      className={`p-3 rounded-lg transition-all duration-300 cursor-pointer ${
-                        hoveredCity === city.name 
-                          ? 'bg-accent/10 border-accent' 
-                          : 'bg-secondary/50 hover:bg-secondary'
-                      } border`}
-                      onMouseEnter={() => setHoveredCity(city.name)}
-                      onMouseLeave={() => setHoveredCity(null)}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-3 h-3 rounded-full ${
-                            city.type === 'Head Office' ? 'bg-accent' : 'bg-primary'
-                          } ${hoveredCity === city.name ? 'animate-pulse' : ''}`}></div>
-                          <div>
-                            <div className="font-body font-semibold text-foreground">
-                              {city.name}
+                <div className="space-y-4">
+                  {/* India Locations */}
+                  <div>
+                    <h4 className="text-lg font-heading font-medium text-accent mb-3 flex items-center">
+                      <span className="mr-2">🇮🇳</span> India
+                    </h4>
+                    <div className="space-y-2">
+                      {presenceCities.filter(city => city.country === 'India').map((city, index) => (
+                        <div 
+                          key={index}
+                          className={`p-2 rounded-lg transition-all duration-300 cursor-pointer ${
+                            hoveredCity === city.name 
+                              ? 'bg-accent/10 border-accent' 
+                              : 'bg-secondary/50 hover:bg-secondary'
+                          } border text-sm`}
+                          onMouseEnter={() => setHoveredCity(city.name)}
+                          onMouseLeave={() => setHoveredCity(null)}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <div className={`w-2 h-2 rounded-full ${
+                                city.type === 'headquarters' ? 'bg-accent' : 'bg-primary'
+                              } ${hoveredCity === city.name ? 'animate-pulse' : ''}`}></div>
+                              <span className="font-body font-medium text-foreground">
+                                {city.name}
+                              </span>
                             </div>
-                            <div className="text-sm text-muted-foreground">
-                              {city.type}
-                            </div>
+                            <MapPin className="w-3 h-3 text-accent" />
                           </div>
                         </div>
-                        <MapPin className="w-4 h-4 text-accent" />
-                      </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                  
+                  {/* International Locations */}
+                  <div>
+                    <h4 className="text-lg font-heading font-medium text-accent mb-3 flex items-center">
+                      <span className="mr-2">🌍</span> International
+                    </h4>
+                    <div className="space-y-2">
+                      {presenceCities.filter(city => city.country !== 'India').map((city, index) => (
+                        <div 
+                          key={index}
+                          className={`p-2 rounded-lg transition-all duration-300 cursor-pointer ${
+                            hoveredCity === city.name 
+                              ? 'bg-accent/10 border-accent' 
+                              : 'bg-secondary/50 hover:bg-secondary'
+                          } border text-sm`}
+                          onMouseEnter={() => setHoveredCity(city.name)}
+                          onMouseLeave={() => setHoveredCity(null)}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+                              <span className="font-body font-medium text-foreground">
+                                {city.name}, {city.country}
+                              </span>
+                            </div>
+                            <MapPin className="w-3 h-3 text-accent" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -132,7 +170,10 @@ const PresenceMap = () => {
                           key={index} 
                           coordinates={city.coordinates}
                           onMouseEnter={() => {
-                            setTooltipContent(`${city.name} - ${city.type}`);
+                            setTooltipContent(`${city.name}, ${city.country} - ${
+                              city.type === 'headquarters' ? 'Headquarters' : 
+                              city.type === 'international' ? 'International Office' : 'Office'
+                            }`);
                             setHoveredCity(city.name);
                           }}
                           onMouseLeave={() => {
@@ -142,8 +183,8 @@ const PresenceMap = () => {
                         >
                           <g>
                             <circle 
-                              r={city.type === 'Head Office' ? 8 : 6} 
-                              fill={city.type === 'Head Office' ? '#f15a29' : '#0b1f4e'}
+                              r={city.type === 'headquarters' ? 8 : city.type === 'international' ? 7 : 6} 
+                              fill={city.type === 'headquarters' ? '#f15a29' : city.type === 'international' ? '#0b1f4e' : '#0b1f4e'}
                               stroke="#fff"
                               strokeWidth={2}
                               className={`cursor-pointer transition-all duration-300 ${
@@ -155,7 +196,7 @@ const PresenceMap = () => {
                             />
                             <text
                               textAnchor="middle"
-                              y={city.type === 'Head Office' ? -15 : -12}
+                              y={city.type === 'headquarters' ? -15 : city.type === 'international' ? -14 : -12}
                               className={`text-xs font-body font-medium fill-primary ${
                                 hoveredCity === city.name ? 'fill-accent' : ''
                               }`}
@@ -180,11 +221,15 @@ const PresenceMap = () => {
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center space-x-2">
                         <div className="w-3 h-3 rounded-full bg-accent"></div>
-                        <span className="font-body text-primary">Head Office</span>
+                        <span className="font-body text-primary">Headquarters</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <div className="w-3 h-3 rounded-full bg-primary"></div>
-                        <span className="font-body text-primary">Branch Office</span>
+                        <span className="font-body text-primary">India Office</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-3 h-3 rounded-full bg-primary"></div>
+                        <span className="font-body text-primary">International</span>
                       </div>
                     </div>
                   </div>
@@ -197,20 +242,20 @@ const PresenceMap = () => {
         {/* Coverage Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-scale-in">
           <div className="text-center p-6 bg-white rounded-xl shadow-card">
-            <div className="text-3xl font-heading font-bold text-accent mb-2">10+</div>
-            <div className="text-sm font-body text-muted-foreground">Cities Covered</div>
+            <div className="text-3xl font-heading font-bold text-accent mb-2">13+</div>
+            <div className="text-sm font-body text-muted-foreground">Global Locations</div>
+          </div>
+          <div className="text-center p-6 bg-white rounded-xl shadow-card">
+            <div className="text-3xl font-heading font-bold text-accent mb-2">50+</div>
+            <div className="text-sm font-body text-muted-foreground">Projects</div>
+          </div>
+          <div className="text-center p-6 bg-white rounded-xl shadow-card">
+            <div className="text-3xl font-heading font-bold text-accent mb-2">3</div>
+            <div className="text-sm font-body text-muted-foreground">Countries</div>
           </div>
           <div className="text-center p-6 bg-white rounded-xl shadow-card">
             <div className="text-3xl font-heading font-bold text-accent mb-2">24/7</div>
-            <div className="text-sm font-body text-muted-foreground">Local Support</div>
-          </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-card">
-            <div className="text-3xl font-heading font-bold text-accent mb-2">500+</div>
-            <div className="text-sm font-body text-muted-foreground">Service Areas</div>
-          </div>
-          <div className="text-center p-6 bg-white rounded-xl shadow-card">
-            <div className="text-3xl font-heading font-bold text-accent mb-2">100%</div>
-            <div className="text-sm font-body text-muted-foreground">Coverage</div>
+            <div className="text-sm font-body text-muted-foreground">Support</div>
           </div>
         </div>
       </div>
