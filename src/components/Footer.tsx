@@ -1,6 +1,12 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { 
   Building, 
   Mail, 
   Phone, 
@@ -38,33 +44,33 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto container-mobile section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-          {/* Company Info */}
-          <div className="space-y-4 sm:space-y-6 sm:col-span-2 lg:col-span-1">
+        <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8 lg:mb-12">
+          
+          <div className="space-y-4 md:col-span-2 lg:col-span-1 order-1">
             <div>
-              <div className="flex items-center mb-3 sm:mb-4">
+              <div className="flex items-center mb-3 lg:mb-4">
                 <img 
                   src={logoImage} 
                   alt="Design Edge MEP LLP Logo" 
-                  className="h-6 sm:h-8 w-auto mr-2 object-contain"
+                  className="h-6 lg:h-8 w-auto mr-2 object-contain"
                 />
-                <div className="text-xl sm:text-2xl font-heading font-bold">
+                <div className="text-xl lg:text-2xl font-heading font-bold">
                   Design<span className="text-accent">Edge</span>
-                  <span className="ml-1 sm:ml-2 text-base sm:text-lg font-normal">MEP LLP</span>
+                  <span className="ml-2 text-base lg:text-lg font-normal">MEP LLP</span>
                 </div>
               </div>
-              <p className="text-white/80 font-body text-sm leading-relaxed">
+              <p className="text-white/80 font-body text-sm leading-relaxed mb-4">
                 Leading MEP consultancy delivering integrated solutions with 
                 cost-effective designs and value engineering excellence.
               </p>
             </div>
             
-            <div className="space-y-2 sm:space-y-3">
-              <div className="flex items-center space-x-3 text-sm">
-                <Mail className="w-4 h-4 text-accent flex-shrink-0" />
-                <div className="space-y-1">
-                  <div className="font-body">sales@designedgemep.com</div>
-                  <div className="font-body">projects@designedgemep.com</div>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3 text-sm">
+                <Mail className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <div className="space-y-1 min-w-0">
+                  <div className="font-body break-all">sales@designedgemep.com</div>
+                  <div className="font-body break-all">projects@designedgemep.com</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 text-sm">
@@ -80,73 +86,118 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-base sm:text-lg font-heading font-semibold mb-4 sm:mb-6">Our Services</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a 
-                    href="#services"
-                    className="text-white/80 hover:text-accent transition-colors font-body text-sm inline-block py-1"
-                  >
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="md:col-span-2 lg:col-span-2 order-2">
+            <div className="block md:hidden">
+              <Accordion type="multiple" className="w-full">
+                <AccordionItem value="services" className="border-white/20">
+                  <AccordionTrigger className="text-left text-base font-heading font-semibold text-white hover:text-accent py-3">
+                    Our Services
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4">
+                    <ul className="space-y-2">
+                      {services.map((service, index) => (
+                        <li key={index}>
+                          <a 
+                            href="#services"
+                            className="text-white/80 hover:text-accent transition-colors font-body text-sm block py-1"
+                          >
+                            {service}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="quick-links" className="border-white/20">
+                  <AccordionTrigger className="text-left text-base font-heading font-semibold text-white hover:text-accent py-3">
+                    Quick Links
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4">
+                    <ul className="space-y-2">
+                      {quickLinks.map((link, index) => (
+                        <li key={index}>
+                          <a 
+                            href={link.href}
+                            className="text-white/80 hover:text-accent transition-colors font-body text-sm block py-1"
+                          >
+                            {link.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+
+            <div className="hidden md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
+              <div>
+                <h3 className="text-base lg:text-lg font-heading font-semibold mb-4 lg:mb-6">Our Services</h3>
+                <ul className="space-y-2 lg:space-y-3">
+                  {services.map((service, index) => (
+                    <li key={index}>
+                      <a 
+                        href="#services"
+                        className="text-white/80 hover:text-accent transition-colors font-body text-sm inline-block py-1"
+                      >
+                        {service}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-base lg:text-lg font-heading font-semibold mb-4 lg:mb-6">Quick Links</h3>
+                <ul className="space-y-2 lg:space-y-3">
+                  {quickLinks.map((link, index) => (
+                    <li key={index}>
+                      <a 
+                        href={link.href}
+                        className="text-white/80 hover:text-accent transition-colors font-body text-sm inline-block py-1"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-base sm:text-lg font-heading font-semibold mb-4 sm:mb-6">Quick Links</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-white/80 hover:text-accent transition-colors font-body text-sm inline-block py-1"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h3 className="text-base sm:text-lg font-heading font-semibold mb-4 sm:mb-6">Connect With Us</h3>
-            <div className="space-y-3 sm:space-y-4">
+          <div className="order-3 lg:order-3">
+            <h3 className="text-base lg:text-lg font-heading font-semibold mb-4 lg:mb-6">Connect With Us</h3>
+            <div className="space-y-3 lg:space-y-4">
               <p className="text-white/80 font-body text-sm leading-relaxed">
                 Follow us for the latest updates on MEP innovations and projects.
               </p>
               
-              <div className="flex space-x-3 sm:space-x-4">
+              <div className="flex space-x-3 lg:space-x-4">
                 <a 
                   href="#"
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
-                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-white" />
+                  <Linkedin className="w-4 h-4 lg:w-5 lg:h-5 text-white group-hover:text-white" />
                 </a>
                 <a 
                   href="#"
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
-                  <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-white" />
+                  <Twitter className="w-4 h-4 lg:w-5 lg:h-5 text-white group-hover:text-white" />
                 </a>
                 <a 
                   href="#"
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
-                  <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:text-white" />
+                  <Facebook className="w-4 h-4 lg:w-5 lg:h-5 text-white group-hover:text-white" />
                 </a>
               </div>
               
               <Card className="bg-white/10 border-0 backdrop-blur-sm">
-                <div className="p-3 sm:p-4">
+                <div className="p-3 lg:p-4">
                   <div className="flex items-center space-x-3">
-                    <Building className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
+                    <Building className="w-4 h-4 lg:w-5 lg:h-5 text-accent flex-shrink-0" />
                     <div>
                       <div className="text-sm font-body font-medium">24/7 Emergency Support</div>
                       <div className="text-xs text-white/70">Quick response for critical MEP issues</div>
@@ -158,19 +209,18 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-6 sm:pt-8 mt-6 sm:mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0">
-            <div className="text-white/60 font-body text-xs sm:text-sm text-center md:text-left">
+        <div className="border-t border-white/20 pt-6 mt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-white/60 font-body text-xs sm:text-sm text-center md:text-left order-2 md:order-1">
               © 2024 Design Edge MEP LLP. All rights reserved. | Privacy Policy | Terms of Service
             </div>
             
             <button 
               onClick={scrollToTop}
-              className="flex items-center space-x-2 text-white/80 hover:text-accent transition-colors font-body text-xs sm:text-sm group btn-touch"
+              className="flex items-center space-x-2 text-white/80 hover:text-accent transition-colors font-body text-sm group btn-touch order-1 md:order-2"
             >
               <span>Back to top</span>
-              <ArrowUp className="w-3 h-3 sm:w-4 sm:h-4 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
             </button>
           </div>
         </div>

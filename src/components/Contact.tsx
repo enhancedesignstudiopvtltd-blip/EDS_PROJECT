@@ -107,26 +107,26 @@ const Contact = () => {
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <Card key={index} className="border-0 shadow-card hover:shadow-hover transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent flex-shrink-0">
-                          <info.icon className="w-6 h-6 text-white" />
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="icon-text-align">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent flex-shrink-0">
+                          <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-body font-semibold text-primary mb-1">
+                        <div className="flex-1 text-mobile-left">
+                          <h4 className="font-body font-semibold text-primary mb-1 text-responsive-sm">
                             {info.title}
                           </h4>
                           {info.title === 'Email Address' ? (
                             <div className="space-y-1">
                               <a 
                                 href="mailto:sales@designedgemep.com"
-                                className="block text-muted-foreground hover:text-accent transition-colors font-body"
+                                className="text-responsive-xs text-muted-foreground hover:text-accent transition-colors block"
                               >
                                 sales@designedgemep.com
                               </a>
                               <a 
                                 href="mailto:projects@designedgemep.com"
-                                className="block text-muted-foreground hover:text-accent transition-colors font-body"
+                                className="text-responsive-xs text-muted-foreground hover:text-accent transition-colors block"
                               >
                                 projects@designedgemep.com
                               </a>
@@ -134,12 +134,14 @@ const Contact = () => {
                           ) : info.link ? (
                             <a 
                               href={info.link}
-                              className="text-muted-foreground hover:text-accent transition-colors font-body"
+                              className="text-responsive-xs text-muted-foreground hover:text-accent transition-colors"
+                              target={info.title === 'Website' ? '_blank' : undefined}
+                              rel={info.title === 'Website' ? 'noopener noreferrer' : undefined}
                             >
                               {info.value}
                             </a>
                           ) : (
-                            <p className="text-muted-foreground font-body">
+                            <p className="text-responsive-xs text-muted-foreground leading-relaxed">
                               {info.value}
                             </p>
                           )}

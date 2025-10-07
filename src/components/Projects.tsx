@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Calendar, Users } from 'lucide-react';
-import logisticsImage from '@/assets/projects/logistics.jpg';
+import { useNavigate } from 'react-router-dom';
+import RequestProposalForm from '@/components/RequestProposalForm';
+import logisticsImage from '@/assets/projects/logistics.png';
 import coworkingImage from '@/assets/projects/coworking.jpg';
 import corporateImage from '@/assets/projects/corporate.jpg';
 import technologyImage from '@/assets/projects/technology.jpg';
@@ -12,15 +14,32 @@ import realestateImage from '@/assets/projects/realestate.jpg';
 import certificationImage from '@/assets/projects/certification.jpg';
 import financeImage from '@/assets/projects/finance.jpg';
 import mediaImage from '@/assets/projects/media.jpg';
+import automotive1Image from '@/assets/projects/Automotive1.png';
+import finance11Image from '@/assets/projects/Finance11.png';
+import finance22Image from '@/assets/projects/Finance22.png';
 
 const Projects = () => {
+  const navigate = useNavigate();
+  const [showProposalForm, setShowProposalForm] = useState(false);
+
+  const handleViewCaseStudies = () => {
+    navigate('/case-studies');
+  };
+
+  const handleRequestProposal = () => {
+    setShowProposalForm(true);
+  };
   const projects = [
+    // Priority projects first
     { name: 'DP World', category: 'Logistics', location: 'Mumbai', year: '2023' },
+    { name: 'Morgan Stanley', category: 'Finance', location: 'Mumbai', year: '2022' },
+    { name: 'Kotak Mahindra Bank', category: 'Banking', location: 'Mumbai', year: '2022' },
     { name: 'Tablespace', category: 'Co-working', location: 'Bengaluru', year: '2023' },
+    { name: 'Paccar', category: 'Automotive', location: 'Pune', year: '2023' },
+    // Other projects
     { name: 'EY (Ernst & Young)', category: 'Corporate', location: 'Pune', year: '2022' },
     { name: 'Ingram Micro', category: 'Technology', location: 'Chennai', year: '2023' },
     { name: 'Fractal Analytics', category: 'Analytics', location: 'Mumbai', year: '2022' },
-    { name: 'Paccar', category: 'Automotive', location: 'Pune', year: '2023' },
     { name: 'KRC Infrastructure', category: 'Real Estate', location: 'Mumbai', year: '2023' },
     { name: 'LRQA', category: 'Certification', location: 'Mumbai', year: '2022' },
     { name: 'Nucleus Office Parks', category: 'Real Estate', location: 'Bengaluru', year: '2023' },
@@ -28,13 +47,24 @@ const Projects = () => {
     { name: 'Mercedes Workshop', category: 'Automotive', location: 'Mumbai', year: '2023' },
     { name: 'Axis Mutual Fund', category: 'Finance', location: 'Mumbai', year: '2022' },
     { name: 'Bank of America', category: 'Banking', location: 'Bengaluru', year: '2023' },
-    { name: 'Kotak Mahindra Bank', category: 'Banking', location: 'Mumbai', year: '2022' },
     { name: 'Viacom 18', category: 'Media', location: 'Mumbai', year: '2023' },
-    { name: 'Morgan Stanley', category: 'Finance', location: 'Mumbai', year: '2022' },
     { name: 'Persistent Bhagheerath', category: 'Technology', location: 'Pune', year: '2023' }
   ];
 
-  const getCategoryImage = (category: string) => {
+  const getProjectImage = (projectName: string, category: string) => {
+    // Specific project images
+    const specificImages = {
+      'Paccar': automotive1Image,
+      'Morgan Stanley': finance11Image,
+      'Kotak Mahindra Bank': finance22Image
+    };
+
+    // Check if there's a specific image for this project
+    if (specificImages[projectName as keyof typeof specificImages]) {
+      return specificImages[projectName as keyof typeof specificImages];
+    }
+
+    // Fall back to category-based images
     const imageMap = {
       'Logistics': logisticsImage,
       'Co-working': coworkingImage,
@@ -102,7 +132,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid-projects">
           {projects.map((project, index) => (
             <Card 
               key={index}
@@ -112,7 +142,7 @@ const Projects = () => {
               <div className="relative h-64 overflow-hidden">
                 {/* Project Image */}
                 <img 
-                  src={getCategoryImage(project.category)} 
+                  src={getProjectImage(project.name, project.category)} 
                   alt={`${project.name} workspace`}
                   className="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-110 transition-all duration-300"
                 />
@@ -164,15 +194,28 @@ const Projects = () => {
             Ready to start your next MEP project?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-gradient-accent text-white font-heading font-semibold rounded-lg shadow-accent hover:shadow-hover transition-all duration-300">
+            <button 
+              onClick={handleViewCaseStudies}
+              className="px-8 py-3 bg-gradient-accent text-white font-heading font-semibold rounded-lg shadow-accent hover:shadow-hover transition-all duration-300"
+            >
               View Case Studies
             </button>
-            <button className="px-8 py-3 border border-primary text-primary font-heading font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-300">
+            <button 
+              onClick={handleRequestProposal}
+              className="px-8 py-3 border border-primary text-primary font-heading font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-300"
+            >
               Request Proposal
             </button>
           </div>
         </div>
       </div>
+      
+      {/* Request Proposal Form Modal */}
+      {showProposalForm && (
+        <RequestProposalForm 
+          onClose={() => setShowProposalForm(false)}
+        />
+      )}
     </section>
   );
 };

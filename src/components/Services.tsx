@@ -78,25 +78,25 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="service-section-mobile bg-background">
       <div className="container mx-auto px-6">
         {/* Design Solutions */}
-        <div className="mb-20">
-          <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
+        <div className="mb-16 md:mb-20">
+          <div className="text-center mb-12 md:mb-16 animate-fade-up">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-4 md:mb-6">
               Design Solutions
             </h2>
-            <p className="text-xl font-body text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl font-body text-muted-foreground max-w-3xl mx-auto px-2">
               Comprehensive MEP design services delivering innovative, cost-effective solutions 
               tailored to your specific requirements.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid-services">
             {designServices.map((service, index) => (
               <Card 
                 key={index}
-                className="card-hover border-0 shadow-card overflow-hidden group"
+                className="card-hover border-0 shadow-card overflow-hidden group service-card-mobile"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {service.image && (
@@ -109,18 +109,18 @@ const Services = () => {
                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-300"></div>
                   </div>
                 )}
-                <CardHeader className="pb-3">
+                <CardHeader className="pb-3 p-4 md:p-6">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent">
-                      <service.icon className="w-6 h-6 text-white" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent">
+                      <service.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-heading font-semibold text-primary">
+                    <CardTitle className="text-lg md:text-xl font-heading font-semibold text-primary">
                       {service.title}
                     </CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground font-body leading-relaxed">
+                <CardContent className="p-4 md:p-6 pt-0">
+                  <p className="text-sm md:text-base text-muted-foreground font-body leading-relaxed">
                     {service.description}
                   </p>
                 </CardContent>
@@ -131,37 +131,37 @@ const Services = () => {
 
         {/* Built Solutions */}
         <div className="animate-fade-up">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary mb-4 md:mb-6">
               Built Solutions
             </h2>
-            <p className="text-xl font-body text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl font-body text-muted-foreground max-w-3xl mx-auto px-2">
               End-to-end implementation services ensuring seamless project execution 
               from design to commissioning.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid-mobile-2cols">
             {builtSolutions.map((solution, index) => (
               <Card 
                 key={index}
-                className="card-hover border-0 shadow-card bg-gradient-to-br from-white to-secondary/50"
+                className="card-hover border-0 shadow-card bg-gradient-to-br from-white to-secondary/50 service-card-mobile"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <CardHeader>
-                  <CardTitle className="text-2xl font-heading font-bold text-primary mb-4">
+                <CardHeader className="p-4 md:p-6">
+                  <CardTitle className="text-xl md:text-2xl font-heading font-bold text-primary mb-4">
                     {solution.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <CardContent className="p-4 md:p-6 pt-0">
+                  <div className="grid grid-cols-1 gap-3">
                     {solution.items.map((item, itemIndex) => (
                       <div 
                         key={itemIndex}
                         className="flex items-center space-x-3 p-3 rounded-lg bg-white/80 hover:bg-accent/10 transition-colors group"
                       >
-                        <div className="w-2 h-2 bg-accent rounded-full group-hover:scale-125 transition-transform"></div>
-                        <span className="font-body text-sm text-foreground font-medium">
+                        <div className="w-2 h-2 bg-accent rounded-full group-hover:scale-125 transition-transform flex-shrink-0"></div>
+                        <span className="font-body text-sm md:text-base text-foreground font-medium">
                           {item}
                         </span>
                       </div>

@@ -76,21 +76,17 @@ const About = () => {
           <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-center text-primary mb-8 sm:mb-12 px-2">
             Our Core Values
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid-values gap-4 sm:gap-6 animate-fade-up">
             {coreValues.map((value, index) => (
-              <Card 
-                key={index} 
-                className="card-hover border-0 shadow-card bg-white/70 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+              <Card key={index} className="border-0 shadow-card hover:shadow-hover transition-all duration-300 group">
                 <CardContent className="p-4 sm:p-6 text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-accent">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-accent rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-accent group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h4 className="text-base sm:text-lg font-heading font-semibold text-primary mb-2">
+                  <h3 className="text-responsive-sm font-heading font-semibold text-primary mb-2 text-mobile-left sm:text-center">
                     {value.title}
-                  </h4>
-                  <p className="text-sm font-body text-muted-foreground leading-relaxed">
+                  </h3>
+                  <p className="text-responsive-xs text-muted-foreground leading-relaxed text-mobile-left sm:text-center">
                     {value.description}
                   </p>
                 </CardContent>
