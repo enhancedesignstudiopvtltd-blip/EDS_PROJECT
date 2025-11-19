@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { MessageCircle, X, Minimize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ChatWindow } from './ChatWindow';
@@ -21,7 +22,7 @@ export const ChatWidget = () => {
     setIsMinimized(false);
   };
 
-  return (
+  return createPortal(
     <>
       {/* Chat Window */}
       {isOpen && (
@@ -57,6 +58,7 @@ export const ChatWidget = () => {
           </div>
         )}
       </div>
-    </>
+    </>,
+    document.body
   );
 };
