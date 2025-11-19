@@ -25,7 +25,7 @@ export const ChatWidget = () => {
     <>
       {/* Chat Window */}
       {isOpen && (
-        <div className={`fixed bottom-20 right-4 sm:right-6 z-40 transition-all duration-300 ${
+        <div className={`fixed bottom-20 right-4 sm:right-6 z-[9999] transition-all duration-300 ${
           isMinimized ? 'scale-95 opacity-50' : 'scale-100 opacity-100'
         }`}>
           <ChatWindow 
@@ -37,7 +37,7 @@ export const ChatWidget = () => {
       )}
 
       {/* Chat Toggle Button */}
-      <div className="fixed bottom-4 right-4 sm:right-6 z-50">
+      <div className="fixed bottom-4 right-4 sm:right-6 z-[9999]">
         <Button
           onClick={toggleChat}
           className="w-14 h-14 rounded-full bg-gradient-accent hover:shadow-accent hover:scale-110 transition-all duration-300 shadow-lg"
