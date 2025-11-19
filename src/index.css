@@ -8,23 +8,23 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* DesignEdge MEP Brand Colors */
-    --background: 0 0% 100%;
-    --foreground: 216 69% 18%;
+    /* Black & White Core Palette */
+    --background: 0 0% 97%;        /* Light grey page background */
+    --foreground: 0 0% 10%;        /* Near Black for text */
     
-    /* Navy Blue Primary */
-    --primary: 216 69% 18%;        /* Navy Blue #0b1f4e */
+    /* Primary: Black */
+    --primary: 0 0% 0%;            /* Black */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 216 45% 35%;
+    --primary-light: 0 0% 20%;     /* Dark Gray */
     
-    /* Orange Accent */
-    --accent: 15 88% 55%;          /* Orange #f15a29 */
+    /* Accent: Grayscale */
+    --accent: 0 0% 0%;             /* Black accent */
     --accent-foreground: 0 0% 100%;
-    --accent-light: 15 88% 75%;
+    --accent-light: 0 0% 70%;      /* Light gray for subtle accents */
     
     /* Light Grey Secondary */
-    --secondary: 0 0% 97%;         /* Light Grey #f7f7f7 */
-    --secondary-foreground: 216 69% 18%;
+    --secondary: 0 0% 96%;         /* Very light gray */
+    --secondary-foreground: 0 0% 10%;
     
     /* Muted colors */
     --muted: 0 0% 95%;
@@ -45,17 +45,17 @@ All colors MUST be HSL.
     /* Border and input */
     --border: 0 0% 90%;
     --input: 0 0% 95%;
-    --ring: 216 69% 18%;
+    --ring: 0 0% 0%;
     
     /* Custom gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(216 69% 18% / 0.9), hsl(216 69% 18% / 0.6));
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 97%));
-    --gradient-accent: linear-gradient(135deg, hsl(15 88% 55%), hsl(15 88% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.9), hsl(0 0% 20% / 0.6));
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 96%));
+    --gradient-accent: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 30%));
     
     /* Shadows */
-    --shadow-card: 0 4px 20px hsl(216 69% 18% / 0.1);
-    --shadow-hover: 0 8px 30px hsl(216 69% 18% / 0.15);
-    --shadow-accent: 0 4px 20px hsl(15 88% 55% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.08);
+    --shadow-hover: 0 8px 30px hsl(0 0% 0% / 0.12);
+    --shadow-accent: 0 4px 20px hsl(0 0% 0% / 0.2);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -81,36 +81,36 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 216 69% 15%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 6%;        /* Near black */
+    --foreground: 0 0% 96%;       /* Near white */
     
-    --primary: 15 88% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;         /* White primary on dark */
+    --primary-foreground: 0 0% 0%;
     
-    --accent: 15 88% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
     
-    --secondary: 216 45% 20%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 96%;
     
-    --muted: 216 45% 20%;
+    --muted: 0 0% 14%;
     --muted-foreground: 0 0% 70%;
     
-    --card: 216 69% 15%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
     
-    --popover: 216 69% 15%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
     
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 216 45% 25%;
-    --input: 216 45% 20%;
-    --ring: 15 88% 55%;
+    --border: 0 0% 20%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 100%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(216 69% 10% / 0.95), hsl(216 69% 15% / 0.8));
-    --gradient-section: linear-gradient(180deg, hsl(216 69% 15%), hsl(216 45% 20%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.95), hsl(0 0% 15% / 0.8));
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 14%));
   }
 }
 
@@ -151,6 +151,26 @@ All colors MUST be HSL.
   .animate-slide-in-right {
     animation: slideInRight 0.7s ease-out;
   }
+
+  /* Global scroll reveal utilities */
+  .reveal {
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  [data-reveal="fade"].reveal.is-visible { animation: fadeIn 700ms ease-out forwards; }
+  [data-reveal="up"].reveal.is-visible { animation: slideUp 700ms ease-out forwards; }
+  [data-reveal="left"].reveal.is-visible { animation: slideInLeft 700ms ease-out forwards; }
+  [data-reveal="right"].reveal.is-visible { animation: slideInRight 700ms ease-out forwards; }
+
+  /* Subtle initial transforms for direction variants */
+  [data-reveal="up"].reveal { transform: translateY(14px); }
+  [data-reveal="left"].reveal { transform: translateX(14px); }
+  [data-reveal="right"].reveal { transform: translateX(-14px); }
+
+  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: translateY(0) } }
+  @keyframes slideInLeft { from { opacity: 0; transform: translateX(14px) } to { opacity: 1; transform: translateX(0) } }
+  @keyframes slideInRight { from { opacity: 0; transform: translateX(-14px) } to { opacity: 1; transform: translateX(0) } }
   
   /* Hover effects */
   .card-hover {
@@ -285,6 +305,72 @@ All colors MUST be HSL.
   .img-responsive {
     @apply w-full h-auto object-cover;
   }
+
+  /* ===== Preloader Animations ===== */
+  .logo-frame {
+    animation: frame-in 700ms ease-out forwards;
+    background-color: #ffffff;
+  }
+
+  @keyframes frame-in {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .preloader-logo {
+    /* staged effects: slower fade-in, longer reveal, slower fade-out */
+    animation: logo-fade-in 900ms ease-out forwards,
+               logo-reveal 2500ms cubic-bezier(0.4, 0, 0.2, 1) 400ms forwards,
+               logo-fade-out 900ms ease-in 3600ms forwards;
+  }
+
+  @keyframes stroke-draw {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  @keyframes logo-fade-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Reveal image via clip to simulate fill */
+  @keyframes logo-reveal {
+    0% { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0 0 0); }
+  }
+
+  @keyframes logo-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  /* Content entrance used after preloader */
+  .content-enter {
+    animation: content-in 600ms ease-out forwards;
+  }
+
+  @keyframes content-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== Clients Logo Marquee ===== */
+  .logo-marquee {
+    /* subtle background and rounded container already via classes */
+    /* prevent accidental scrollbars */
+    overflow: hidden;
+  }
+
+  .logo-track {
+    /* content should size to fit so translate works with percentage */
+    width: max-content;
+    animation: logo-scroll 30s linear infinite;
+  }
+
+  .logo-item {
+    /* equal horizontal spacing for each logo */
+    padding-inline: 0.25rem;
+  }
   
   /* Mobile-friendly form inputs */
   .input-touch {
@@ -308,6 +394,75 @@ All colors MUST be HSL.
     .container-mobile {
       @apply px-3;
     }
+  }
+
+  /* ===== Services Mega Dropdown Layout (Captec-like) ===== */
+  .dropdown-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    background-color: #F5F5F5;
+    padding: 30px 50px;
+    width: auto; /* allow max-width centering */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .service-column {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .service-column h3 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .service-column ul {
+    list-style-type: none;
+    padding: 0;
+    line-height: 1.8;
+  }
+
+  .service-column ul li:hover {
+    color: #00796b;
+    cursor: pointer;
+  }
+
+  .dropdown-content * {
+    white-space: nowrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Tablet: wrap into two columns */
+  @media (max-width: 1024px) {
+    .dropdown-content {
+      flex-wrap: wrap;
+    }
+    .service-column {
+      flex: 1 1 45%;
+    }
+  }
+
+  /* Mobile: stack vertically */
+  @media (max-width: 768px) {
+    .dropdown-content {
+      flex-direction: column;
+      padding: 20px;
+      position: static; /* inside mobile drawer */
+      box-shadow: none;
+    }
+    .service-column { width: 100%; }
   }
   
   @media (min-width: 481px) and (max-width: 768px) {
@@ -558,4 +713,10 @@ All colors MUST be HSL.
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Continuous horizontal scroll for client logos */
+@keyframes logo-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }

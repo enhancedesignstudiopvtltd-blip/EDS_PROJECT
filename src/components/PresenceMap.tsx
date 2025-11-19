@@ -29,7 +29,7 @@ const PresenceMap = () => {
   ];
 
   return (
-    <section id="presence" className="py-20 bg-background">
+    <section id="presence" className="py-20 bg-background" data-reveal="up" data-stagger data-aos-once="true">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -191,7 +191,7 @@ const PresenceMap = () => {
                                 hoveredCity === city.name ? 'animate-pulse' : ''
                               }`}
                               style={{
-                                filter: hoveredCity === city.name ? 'drop-shadow(0 0 10px rgba(241, 90, 41, 0.6))' : 'none'
+                                filter: hoveredCity === city.name ? 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.6))' : 'none'
                               }}
                             />
                             <text

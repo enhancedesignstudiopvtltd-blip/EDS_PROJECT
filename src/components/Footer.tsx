@@ -24,42 +24,44 @@ const Footer = () => {
   };
 
   const services = [
-    'HVAC Design & Installation',
+    'HVAC (High & Low Side)',
     'Electrical Systems',
-    'Fire & Safety Systems',
-    'BMS Integration',
+    'Cable Tray Systems',
+    'Fire Protection Systems',
+    'Fire Alarm & Suppression',
+    'IBMS Integration',
     'UPS & Power Backup',
-    'IT Infrastructure',
+    'IT Passive Infrastructure',
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Presence', href: '#presence' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Careers', href: '#careers' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Presence', href: '/#presence' },
+    { name: 'Contact', href: '/contact-us' },
   ];
 
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto container-mobile section-padding">
-        <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8 lg:mb-12">
+        <div className="space-y-8 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8 lg:mb-12">
           
           <div className="space-y-4 md:col-span-2 lg:col-span-1 order-1">
             <div>
               <div className="flex items-center mb-3 lg:mb-4">
                 <img 
                   src={logoImage} 
-                  alt="Design Edge MEP LLP Logo" 
-                  className="h-6 lg:h-8 w-auto mr-2 object-contain"
+                  alt="Enhance Design Studio Pvt. Ltd. Logo" 
+                  className="h-6 sm:h-7 lg:h-8 w-auto mr-2 object-contain"
                 />
-                <div className="text-xl lg:text-2xl font-heading font-bold">
-                  Design<span className="text-accent">Edge</span>
-                  <span className="ml-2 text-base lg:text-lg font-normal">MEP LLP</span>
+                <div className="text-lg sm:text-xl lg:text-2xl font-heading font-bold">
+                  Enhance <span className="text-accent">Design Studio</span>
+                  <span className="ml-2 text-sm sm:text-base lg:text-lg font-normal">Pvt. Ltd.</span>
                 </div>
               </div>
-              <p className="text-white/80 font-body text-sm leading-relaxed mb-4">
+              <p className="text-white/80 font-body text-sm leading-relaxed mb-4 max-w-[36ch]">
                 Leading MEP consultancy delivering integrated solutions with 
                 cost-effective designs and value engineering excellence.
               </p>
@@ -79,7 +81,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-3 text-sm">
                 <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="font-body leading-relaxed">
+                <span className="font-body leading-relaxed max-w-[34ch]">
                   Office No. 511C, C-Wing, Baitunnoor, Kurla West, Mumbai, Maharashtra, 400070
                 </span>
               </div>
@@ -94,7 +96,7 @@ const Footer = () => {
                     Our Services
                   </AccordionTrigger>
                   <AccordionContent className="pb-4">
-                    <ul className="space-y-2">
+                    <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                       {services.map((service, index) => (
                         <li key={index}>
                           <a 
@@ -114,10 +116,10 @@ const Footer = () => {
                     Quick Links
                   </AccordionTrigger>
                   <AccordionContent className="pb-4">
-                    <ul className="space-y-2">
+                    <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                       {quickLinks.map((link, index) => (
                         <li key={index}>
-                          <a 
+                          <a
                             href={link.href}
                             className="text-white/80 hover:text-accent transition-colors font-body text-sm block py-1"
                           >
@@ -153,7 +155,7 @@ const Footer = () => {
                 <ul className="space-y-2 lg:space-y-3">
                   {quickLinks.map((link, index) => (
                     <li key={index}>
-                      <a 
+                      <a
                         href={link.href}
                         className="text-white/80 hover:text-accent transition-colors font-body text-sm inline-block py-1"
                       >
@@ -176,19 +178,19 @@ const Footer = () => {
               <div className="flex space-x-3 lg:space-x-4">
                 <a 
                   href="#"
-                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
+                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
                   <Linkedin className="w-4 h-4 lg:w-5 lg:h-5 text-white group-hover:text-white" />
                 </a>
                 <a 
                   href="#"
-                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
+                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
                   <Twitter className="w-4 h-4 lg:w-5 lg:h-5 text-white group-hover:text-white" />
                 </a>
                 <a 
                   href="#"
-                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
+                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                 >
                   <Facebook className="w-4 h-4 lg:w-5 lg:h-5 text-white group-hover:text-white" />
                 </a>
@@ -212,7 +214,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-6 mt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 font-body text-xs sm:text-sm text-center md:text-left order-2 md:order-1">
-              © 2024 Design Edge MEP LLP. All rights reserved. | Privacy Policy | Terms of Service
+              © 2024 Enhance Design Studio Pvt. Ltd. All rights reserved. | Privacy Policy | Terms of Service
             </div>
             
             <button 

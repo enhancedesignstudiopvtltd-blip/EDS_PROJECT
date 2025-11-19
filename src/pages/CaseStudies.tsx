@@ -12,6 +12,9 @@ import kotakImage from '@/assets/projects/Finance22.png';
 import tablespaceImage from '@/assets/projects/coworking.jpg';
 import paccarImage from '@/assets/projects/Automotive1.png';
 import logisticsImage from '@/assets/projects/logistics.png';
+import corporateImage from '@/assets/projects/corporate.jpg';
+import technologyImage from '@/assets/projects/technology.jpg';
+import realestateImage from '@/assets/projects/realestate.jpg';
 
 interface CaseStudy {
   id: string;
@@ -254,8 +257,40 @@ const CaseStudies: React.FC = () => {
             Explore our successful MEP engineering projects across various industries. 
             Each case study demonstrates our expertise in delivering innovative, efficient, and reliable solutions.
           </p>
+      </div>
+    </div>
+
+    {/* Featured Realtime Use Cases */}
+    <section className="py-12">
+      <div className="container mx-auto container-mobile">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-heading font-bold text-primary">Featured Realtime Use Cases</h2>
+          <p className="mt-2 font-body text-muted-foreground">Representative scenarios with visuals and quick-impact highlights.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {[
+            { title: 'Hospital Retrofit', img: corporateImage, tags: ['Zero downtime', 'Compliance-first', 'Patient comfort'] },
+            { title: 'Data Center Efficiency', img: technologyImage, tags: ['Improved PUE', 'UPS strategy', 'IBMS insights'] },
+            { title: 'Greenfield Tower', img: realestateImage, tags: ['Fast approvals', 'Energy targets', 'Optimized Capex/Opex'] },
+          ].map((uc) => (
+            <Card key={uc.title} className="overflow-hidden border-0 shadow-card card-hover">
+              <div className="relative h-40 md:h-48">
+                <img src={uc.img} alt={uc.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-3 left-3 text-white font-heading text-lg">{uc.title}</div>
+              </div>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {uc.tags.map((t) => (
+                    <span key={t} className="px-2 py-1 rounded-full text-xs bg-secondary text-foreground">{t}</span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
+    </section>
 
       {/* Case Studies Grid */}
       <div className="container mx-auto container-mobile py-16">

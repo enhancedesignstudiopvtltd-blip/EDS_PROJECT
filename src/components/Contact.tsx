@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MotionSection, MotionItem } from '@/components/Motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -52,240 +53,126 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: User,
-      title: 'Contact Person',
-      value: 'Imam Rabbani',
-      link: null
-    },
-    {
-      icon: Phone,
-      title: 'Phone Number',
-      value: '+91 9504322143',
-      link: 'tel:+919504322143'
-    },
-    {
-      icon: Mail,
-      title: 'Email Address',
-      value: 'sales@designedgemep.com\nprojects@designedgemep.com',
-      link: null
+      icon: MapPin,
+      title: 'Head Office',
+      value: 'Office No. 511C, C‑Wing, Baitunnoor, Kurla West, Mumbai, Maharashtra, 400070, India',
+      link: null,
     },
     {
       icon: Globe,
       title: 'Website',
       value: 'www.designedgemep.com',
-      link: 'https://www.designedgemep.com'
+      link: 'https://www.designedgemep.com',
     },
     {
-      icon: MapPin,
-      title: 'Office Address',
-      value: 'Office No. 511C, C-Wing, Baitunnoor, Kurla West, Mumbai, Maharashtra, 400070, India',
-      link: null
-    }
+      icon: Mail,
+      title: 'Email',
+      value: 'info@designedgemep.com',
+      link: 'mailto:info@designedgemep.com',
+    },
+    {
+      icon: Clock,
+      title: 'Business Hours',
+      value: 'Mon–Fri: 9:00 AM – 6:00 PM · Sat: 9:00 AM – 2:00 PM',
+      link: null,
+    },
   ];
 
   return (
-    <section id="contact" className="section-padding bg-gradient-section">
+    <MotionSection id="contact" className="section-padding bg-background" variant="up" stagger data-aos-once="true">
       <div className="container mx-auto container-mobile">
-        <div className="text-center mb-12 sm:mb-16 animate-fade-up">
-          <h2 className="text-responsive-xl font-heading font-bold text-primary mb-4 sm:mb-6 px-2">
-            Let's Connect & <span className="text-accent">Build Together</span>
-          </h2>
-          <p className="text-responsive-base font-body text-muted-foreground max-w-3xl mx-auto px-4">
-            Ready to transform your space with world-class MEP solutions? 
-            Get in touch with our experts today.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-          {/* Contact Information */}
-          <div className="space-y-6 sm:space-y-8 animate-fade-up">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12">
+          {/* Left text block */}
+          <div className="space-y-4 sm:space-y-6">
+            <MotionItem variant="up">
+              <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary">Let’s Build Smart Together</h2>
+            </MotionItem>
+            <MotionItem variant="up" delay={0.06}>
+              <h3 className="text-xl sm:text-2xl font-heading font-semibold text-primary">Let’s Start Your Next Project</h3>
+            </MotionItem>
+            <MotionItem variant="fade" delay={0.12}>
+              <p className="text-base sm:text-lg font-body text-muted-foreground leading-[1.85] max-w-[65ch]">
+                Whether you’re planning a new commercial development, upgrading an industrial facility, or exploring sustainable design options, our engineering team is ready to help. Tell us your goals and challenges, and we’ll recommend solutions tailored to your timeline and performance targets.
+              </p>
+            </MotionItem>
             <div>
-              <h3 className="text-xl sm:text-2xl font-heading font-semibold text-primary mb-4 sm:mb-6">
-                Get In Touch
-              </h3>
-              
-              <div className="space-y-4">
+              <MotionItem variant="up" delay={0.18}>
+                <h4 className="text-lg sm:text-xl font-heading font-semibold text-primary mb-3">Contact Information</h4>
+              </MotionItem>
+              <div className="space-y-3">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className="border-0 shadow-card hover:shadow-hover transition-all duration-300">
-                    <CardContent className="p-4 sm:p-6">
-                      <div className="icon-text-align">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent flex-shrink-0">
-                          <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                        </div>
-                        <div className="flex-1 text-mobile-left">
-                          <h4 className="font-body font-semibold text-primary mb-1 text-responsive-sm">
-                            {info.title}
-                          </h4>
-                          {info.title === 'Email Address' ? (
-                            <div className="space-y-1">
-                              <a 
-                                href="mailto:sales@designedgemep.com"
-                                className="text-responsive-xs text-muted-foreground hover:text-accent transition-colors block"
-                              >
-                                sales@designedgemep.com
-                              </a>
-                              <a 
-                                href="mailto:projects@designedgemep.com"
-                                className="text-responsive-xs text-muted-foreground hover:text-accent transition-colors block"
-                              >
-                                projects@designedgemep.com
-                              </a>
-                            </div>
-                          ) : info.link ? (
-                            <a 
-                              href={info.link}
-                              className="text-responsive-xs text-muted-foreground hover:text-accent transition-colors"
-                              target={info.title === 'Website' ? '_blank' : undefined}
-                              rel={info.title === 'Website' ? 'noopener noreferrer' : undefined}
-                            >
-                              {info.value}
-                            </a>
-                          ) : (
-                            <p className="text-responsive-xs text-muted-foreground leading-relaxed">
-                              {info.value}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <MotionItem key={index} variant="up" delay={0.2 + index * 0.06} className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-full bg-black/80 text-white flex items-center justify-center">
+                      <info.icon className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-heading font-semibold text-primary text-sm sm:text-base">{info.title}</div>
+                      {info.link ? (
+                        <a href={info.link} className="font-body text-sm sm:text-base text-primary hover:underline">{info.value}</a>
+                      ) : (
+                        <p className="font-body text-sm sm:text-base text-primary/80">{info.value}</p>
+                      )}
+                    </div>
+                  </MotionItem>
                 ))}
               </div>
             </div>
-
-            {/* Business Hours */}
-            <Card className="border-0 shadow-card bg-primary text-white">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <Clock className="w-6 h-6 text-accent" />
-                  <h4 className="text-xl font-heading font-semibold">Business Hours</h4>
-                </div>
-                <div className="space-y-2 font-body">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday:</span>
-                    <span>9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday:</span>
-                    <span>9:00 AM - 2:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday:</span>
-                    <span>Emergency Only</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
-          {/* Contact Form */}
-          <div className="animate-slide-in-right">
-            <Card className="border-0 shadow-card">
-              <CardHeader>
-                <CardTitle className="text-2xl font-heading font-semibold text-primary flex items-center">
-                  <MessageSquare className="w-6 h-6 mr-3 text-accent" />
-                  Send Us a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 pt-0">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="font-body font-medium text-foreground">
-                        Full Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Your full name"
-                        required
-                        className="font-body input-touch"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="font-body font-medium text-foreground">
-                        Phone Number *
-                      </Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="+91 XXXXX XXXXX"
-                        required
-                        className="font-body input-touch"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="font-body font-medium text-foreground">
-                      Email Address *
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your.email@example.com"
-                      required
-                      className="font-body input-touch"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="font-body font-medium text-foreground">
-                      Project Details *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell us about your MEP requirements, project timeline, and any specific needs..."
-                      required
-                      rows={4}
-                      className="font-body resize-none input-touch"
-                    />
-                  </div>
-                  
-                  <div className="flex items-start space-x-3 text-sm text-muted-foreground">
-                    <Shield className="w-4 h-4 mt-0.5 text-accent" />
-                    <p className="font-body">
-                      Your information is secure and will only be used to respond to your inquiry. 
-                      We respect your privacy and never share your details.
-                    </p>
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full btn-touch bg-gradient-accent hover:shadow-accent text-white font-heading font-semibold"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+          {/* Right form */}
+          <div>
+            <h3 className="text-xl sm:text-2xl font-heading font-semibold text-primary mb-4">Send us a message</h3>
+            <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
+              <MotionItem variant="up">
+                <Input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Name"
+                required
+                className="font-body input-touch"
+              />
+              </MotionItem>
+              <MotionItem variant="up" delay={0.06}>
+                <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Email"
+                required
+                className="font-body input-touch"
+              />
+              </MotionItem>
+              <MotionItem variant="up" delay={0.12}>
+                <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="Phone"
+                required
+                className="font-body input-touch"
+              />
+              </MotionItem>
+              <MotionItem variant="fade" delay={0.18}>
+                <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full btn-touch bg-[#6C5CE7] hover:bg-[#5a4fd6] text-white font-heading font-semibold"
+              >
+                {isSubmitting ? 'Sending…' : 'Send'}
+              </Button>
+              </MotionItem>
+            </form>
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

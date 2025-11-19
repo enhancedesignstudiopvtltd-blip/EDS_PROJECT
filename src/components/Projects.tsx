@@ -99,7 +99,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-section">
+    <section id="projects" className="py-20 bg-gradient-section" data-reveal="up" data-stagger data-aos-once="true">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">

@@ -46,10 +46,14 @@ const GetQuoteForm: React.FC<GetQuoteFormProps> = ({ isOpen, onClose }) => {
   const [dragActive, setDragActive] = useState(false);
 
   const services = [
-    'HVAC Systems',
+    'HVAC – High Side',
+    'HVAC – Low Side',
     'Electrical Systems',
-    'Fire & Safety',
-    'BMS Integration',
+    'Cable Tray Systems',
+    'Fire Fighting Systems',
+    'Fire Alarm Systems',
+    'Fire Suppression Systems',
+    'IBMS Integration',
     'MEP Consulting',
     'Complete MEP Solutions',
     'Other'

@@ -68,17 +68,112 @@ const Services = () => {
 
   const builtSolutions = [
     {
-      title: 'SITC of Electrical Systems',
-      items: ['Lighting Systems', 'Power Distribution', 'UPS Systems', 'Earthing & Grounding', 'Cable Tray Systems', 'IT Passive Infrastructure']
+      title: 'Cable Tray Systems',
+      items: [
+        'Cable Trays',
+        'Raceways',
+        'Trunking',
+        'Conduiting',
+        'Cables',
+        'Wiring',
+        'Systems'
+      ]
     },
     {
-      title: 'Fire, Safety & Security Systems',
-      items: ['Fire Fighting Systems', 'Gas Suppression', 'Fire Alarm Systems', 'CCTV Surveillance', 'Access Control', 'Leak Detection', 'VESDA Systems', 'IBMS Integration']
+      title: 'HVAC – High Side',
+      items: [
+        'CHW–AHU Systems',
+        'VRF Systems',
+        'VRV Systems',
+        'DX Split AC Systems'
+      ]
+    },
+    {
+      title: 'HVAC – Low Side',
+      items: [
+        'Copper Piping',
+        'Drain Piping',
+        'Ducting',
+        'CHW Piping'
+      ]
+    },
+    {
+      title: 'Fire Fighting Systems',
+      items: [
+        'External Hydrant System',
+        'Internal Sprinkler System',
+        'Fire Extinguishers'
+      ]
+    },
+    {
+      title: 'Fire Alarm Systems',
+      items: [
+        'Conventional Fire Alarm System',
+        'Addressable Fire Alarm System',
+        'Beam Detection System',
+        'Aspirating Smoke Detection (ASD)',
+        'Gas Detection System',
+        'Public Address System',
+        'Voice Evacuation System',
+        'Fire Telephony System'
+      ]
+    },
+    {
+      title: 'Fire Suppression – Water-Based',
+      items: [
+        'Sprinkler Systems',
+        'Deluge Systems',
+        'Pre-Action Systems',
+        'High/Low Expansion Foam Systems'
+      ]
+    },
+    {
+      title: 'Fire Suppression – Clean Agent',
+      items: [
+        'FM-200',
+        'NOVEC 1230',
+        'Aerosol Systems'
+      ]
+    },
+    {
+      title: 'Fire Suppression – Inert Gas',
+      items: [
+        'CO₂ Systems',
+        'Inert Gas Systems'
+      ]
+    },
+    {
+      title: 'Kitchen Hood Suppression',
+      items: [
+        'Wet Chemical Systems',
+        'Integrated Control & Monitoring'
+      ]
+    },
+    {
+      title: 'Specialized Safety & IBMS',
+      items: [
+        'Gas Suppression Systems',
+        'VESDA Systems (Very Early Smoke Detection Apparatus)',
+        'Leak Detection Systems',
+        'Rodent Repellent Systems',
+        'Integrated Building Management Systems (IBMS)'
+      ]
+    },
+    {
+      title: 'SITC of Electrical Systems',
+      items: [
+        'Lighting Systems',
+        'Power Distribution',
+        'UPS Systems',
+        'Earthing & Grounding',
+        'Cable Tray Systems',
+        'IT Passive Infrastructure'
+      ]
     }
   ];
 
   return (
-    <section id="services" className="service-section-mobile bg-background">
+    <section id="services" className="service-section-mobile bg-background" data-reveal="up" data-stagger data-aos-once="true">
       <div className="container mx-auto px-6">
         {/* Design Solutions */}
         <div className="mb-16 md:mb-20">
