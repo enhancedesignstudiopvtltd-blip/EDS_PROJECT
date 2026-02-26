@@ -19,7 +19,10 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [preloadDone, setPreloadDone] = useState(false);
-  const comingSoon = (import.meta.env?.VITE_COMING_SOON ?? 'true') === 'true';
+  const comingSoon = (
+    (import.meta.env?.VITE_COMING_SOON ?? 'true') === 'true' ||
+    (import.meta.env as any)?.NEXT_PUBLIC_MAINTENANCE_MODE === 'true'
+  );
 
   useEffect(() => {
     // Allow forcing intro via ?intro for testing
@@ -63,21 +66,17 @@ const App = () => {
           <GsapScrollProvider>
             <BrowserRouter>
               <Routes>
-              {comingSoon ? (
-                <>
-                  <Route path="*" element={<ComingSoon />} />
-                </>
-              ) : (
-                <>
-                  <Route path="/" element={<ConsultingPage />} />
-                  <Route path="/design-build" element={<Index />} />
-                  <Route path="/consulting" element={<ConsultingPage />} />
-                  <Route path="/about-us" element={<AboutUs />} />
-                  <Route path="/case-studies" element={<CaseStudies />} />
-                  <Route path="/contact-us" element={<ContactUs />} />
-                  <Route path="*" element={<NotFound />} />
-                </>
-              )}
+                <Route path="/" element={<ConsultingPage />} />
+                <Route path="/design-build" element={comingSoon ? <ComingSoon /> : <Index />} />
+                <Route path="/consulting" element={<ConsultingPage />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/contact-us" element={<ContactUs />} />
+                <Route path="/services" element={comingSoon ? <ComingSoon /> : <Index />} />
+                <Route path="/projects" element={comingSoon ? <ComingSoon /> : <Index />} />
+                <Route path="/news" element={comingSoon ? <ComingSoon /> : <Index />} />
+                <Route path="/coming-soon" element={<ComingSoon />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
               {!comingSoon && <ChatWidget />}
             </BrowserRouter>

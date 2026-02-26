@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,6 +52,9 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.9), hsl(0 0% 20% / 0.6));
     --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 96%));
     --gradient-accent: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 30%));
+    
+    /* Premium accent for Coming Soon */
+    --premium-accent: 194 100% 50%; /* #00C2FF */
     
     /* Shadows */
     --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.08);
@@ -172,6 +176,16 @@ All colors MUST be HSL.
   @keyframes slideInLeft { from { opacity: 0; transform: translateX(14px) } to { opacity: 1; transform: translateX(0) } }
   @keyframes slideInRight { from { opacity: 0; transform: translateX(-14px) } to { opacity: 1; transform: translateX(0) } }
   
+  @keyframes loadingSlide {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(250%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes dotPulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
   /* Hover effects */
   .card-hover {
     transition: var(--transition-smooth);
@@ -239,6 +253,160 @@ All colors MUST be HSL.
     background: linear-gradient(90deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.10) 100%);
     background-size: 200% 100%;
     animation: shimmer 2.5s linear infinite;
+  }
+  
+  /* Premium heading font for Coming Soon */
+  .font-premium {
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+
+/* Floating glassmorphic navbar */
+.nav-premium {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 1400px;
+  z-index: 9999;
+  padding: 14px 32px;
+  border-radius: 16px;
+  background: rgba(12, 14, 20, 0.20);
+  backdrop-filter: blur(30px) saturate(1.35) brightness(1.12);
+  -webkit-backdrop-filter: blur(30px) saturate(1.35) brightness(1.12);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+.nav-premium.scrolled {
+  background: rgba(12, 14, 20, 0.45);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+  top: 12px;
+}
+.nav-premium a {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.nav-premium a:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+.nav-premium a.active {
+  color: #00C2FF;
+}
+
+/* Hide native video overlays and add corner mask */
+.cs-video { pointer-events: none; }
+.cs-video::-webkit-media-controls { display: none !important; }
+.cs-video::-webkit-media-controls-enclosure { display: none !important; }
+.cs-video::-webkit-media-controls-panel { display: none !important; }
+.cs-video::-webkit-media-controls-play-button { display: none !important; }
+.cs-video::-webkit-media-controls-mute-button { display: none !important; }
+.video-corner-mask {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 240px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.0) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Navbar image logo styling for transparent PNG */
+.navbar-logo {
+  height: clamp(32px, 4vw, 50px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: invert(1) brightness(1.1);
+  transition: opacity 0.3s ease;
+}
+.navbar-logo:hover {
+  opacity: 0.9;
+}
+
+  /* Cinematic full-screen overlay */
+  .cinematic-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.85) 100%);
+    pointer-events: none;
+  }
+
+  /* Premium CTA button */
+  .btn-premium {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.30);
+    padding: 16px 48px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-premium:hover {
+    border-color: hsl(var(--premium-accent));
+    background: hsla(var(--premium-accent) / 0.10);
+    box-shadow: 0 0 30px hsla(var(--premium-accent) / 0.20);
+    transform: scale(1.05);
+  }
+  .btn-premium.glow {
+    box-shadow: 0 0 0 0 hsla(var(--premium-accent) / 0.18);
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%   { box-shadow: 0 0 0 0 hsla(var(--premium-accent) / 0.18); }
+    50%  { box-shadow: 0 0 18px 4px hsla(var(--premium-accent) / 0.28); }
+    100% { box-shadow: 0 0 0 0 hsla(var(--premium-accent) / 0.18); }
+  }
+
+  /* Glassy social icons */
+  .icon-glass {
+    width: 40px; height: 40px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+  .icon-glass:hover {
+    transform: translateY(-2px) scale(1.05);
+    border-color: hsla(var(--premium-accent) / 0.6);
+    box-shadow: 0 0 18px hsla(var(--premium-accent) / 0.28);
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* Progress line with glowing dot */
+  .progress-line {
+    position: relative;
+    height: 2px;
+    background: hsla(var(--premium-accent) / 0.3);
+    border-radius: 9999px;
+    overflow: visible;
+  }
+  .progress-dot {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    width: 10px; height: 10px;
+    border-radius: 9999px;
+    background: hsl(var(--premium-accent));
+    box-shadow: 0 0 16px hsla(var(--premium-accent) / 0.6), 0 0 6px hsla(var(--premium-accent) / 0.8) inset;
   }
   
   

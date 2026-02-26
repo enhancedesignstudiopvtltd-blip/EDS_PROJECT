@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Volume2, VolumeX } from 'lucide-react';
 import consultingVideo from '@/assets/Preview_live.mp4';
 
 const ConsultingHero = () => {
   const [videoReady, setVideoReady] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -43,23 +41,7 @@ const ConsultingHero = () => {
           <source src={consultingVideo} type="video/mp4" />
         </video>
 
-        <button
-          aria-label={isMuted ? 'Unmute background video' : 'Mute background video'}
-          onClick={() => {
-            const v = videoRef.current;
-            if (!v) return;
-            setIsMuted(prev => {
-              const next = !prev;
-              v.muted = next;
-              v.play().catch(() => {});
-              return next;
-            });
-          }}
-          className="absolute bottom-4 right-4 z-10 flex items-center gap-2 px-3 py-2 rounded-lg bg-black/50 text-white backdrop-blur-sm hover:bg-black/70 transition-colors"
-        >
-          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-          <span className="text-sm">{isMuted ? 'Unmute' : 'Mute'}</span>
-        </button>
+        
 
         
       </div>

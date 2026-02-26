@@ -71,18 +71,22 @@ const Footer = () => {
               <div className="flex items-start space-x-3 text-sm">
                 <Mail className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                 <div className="space-y-1 min-w-0">
-                  <div className="font-body break-all">sales@designedgemep.com</div>
-                  <div className="font-body break-all">projects@designedgemep.com</div>
+                  <div className="font-body break-all">Info@enhancedesignstudio.com</div>
+                  <div className="font-body break-all">rabbani@enhancedesignstudio.com</div>
+                  <div className="font-body break-all">rizwan@enhancedesignstudio.com</div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3 text-sm">
-                <Phone className="w-4 h-4 text-accent flex-shrink-0" />
-                <span className="font-body">+91 9504322143</span>
+              <div className="flex items-start space-x-3 text-sm">
+                <Phone className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <div className="space-y-1 min-w-0">
+                  <div className="font-body">RABBANI ALI — +91 9504322143</div>
+                  <div className="font-body">MD Rizwan — +91 77984 69191</div>
+                </div>
               </div>
               <div className="flex items-start space-x-3 text-sm">
                 <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                 <span className="font-body leading-relaxed max-w-[34ch]">
-                  Office No. 511C, C-Wing, Baitunnoor, Kurla West, Mumbai, Maharashtra, 400070
+                  PHOENIX PARAGON PLAZA, 1ST FLOOR, OFFICE NO. 1B/53, LBS MARG, KURLA WEST, MUMBAI – 400070
                 </span>
               </div>
             </div>

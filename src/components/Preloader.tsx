@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import edsLogo from '@/EDS_logo.png';
+import edsLogoPng from '@/EDS Pvt. Ltd..png';
 
 type PreloaderProps = {
   onDone: () => void;
@@ -43,7 +43,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onDone, durationMs = 4200, ttlMs 
     <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-white">
       <div className="relative flex flex-col items-center justify-center">
         <img
-          src={edsLogo}
+          src={edsLogoPng}
           alt="Enhance Design Studio Pvt. Ltd."
           className="w-[160px] h-auto object-contain preloader-logo"
         />
