@@ -317,9 +317,10 @@ All colors MUST be HSL.
   bottom: 0;
   width: 240px;
   height: 120px;
-  background: linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.0) 100%);
+  background: transparent;
   pointer-events: none;
   z-index: 5;
+  display: none;
 }
 
 /* Navbar image logo styling for transparent PNG */

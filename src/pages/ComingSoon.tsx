@@ -10,6 +10,8 @@ const ComingSoon = () => {
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
     const html = document.documentElement;
     const body = document.body;
     const prevHtmlOverflow = html.style.overflow;
@@ -107,8 +109,8 @@ const ComingSoon = () => {
   const words = headline.split(' ');
 
   return (
-    <main className="fixed inset-0 h-[100vh] w-[100vw] overflow-hidden">
-      <section ref={containerRef} className="absolute inset-0">
+    <main className="fixed inset-0 h-[100vh] w-[100vw] overflow-y-auto md:overflow-hidden">
+      <section ref={containerRef} className="absolute inset-0 md:relative">
         <video
           ref={videoRef}
           className={`cs-video absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
@@ -129,7 +131,7 @@ const ComingSoon = () => {
         <canvas id="particles" className="absolute inset-0 w-full h-full pointer-events-none" />
 
         <div
-          className="relative z-10 h-full w-full flex items-center justify-center px-6"
+          className="relative z-10 min-h-[100vh] w-full flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-10"
           style={{ transform: `translate3d(${parallax.x}px, ${parallax.y}px, 0)` }}
         >
           <div className="max-w-4xl w-full text-center text-white">
@@ -158,7 +160,7 @@ const ComingSoon = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.0, duration: 0.6 }}
-              className="font-premium font-light text-white/80 leading-relaxed mb-6"
+              className="font-premium font-light text-white/80 leading-relaxed mb-4 sm:mb-6 px-2"
               style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', letterSpacing: '0.02em', lineHeight: 1.7 }}
             >
               Our digital experience is currently under development. Big things are on the horizon. Stay tuned.
@@ -218,11 +220,11 @@ const ComingSoon = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.0 }}
-              className="not-italic grid grid-cols-1 sm:grid-cols-1 gap-3 justify-items-center mb-6"
+              className="not-italic grid grid-cols-1 gap-3 justify-items-center mb-8 sm:mb-6 px-2"
             >
               <div className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-white/85 mt-0.5" aria-hidden="true" />
-                <div className="font-body text-[0.95rem] flex flex-wrap justify-center gap-2">
+                <div className="font-body text-[0.9rem] sm:text-[0.95rem] flex flex-wrap justify-center gap-2 text-white">
                   <a href="mailto:Info@enhancedesignstudio.com" className="hover:text-white">Info@enhancedesignstudio.com</a>
                   <span className="text-white/40">|</span>
                   <a href="mailto:rabbani@enhancedesignstudio.com" className="hover:text-white">rabbani@enhancedesignstudio.com</a>
@@ -232,14 +234,14 @@ const ComingSoon = () => {
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-white/85 mt-0.5" aria-hidden="true" />
-                <div className="font-body text-[0.95rem]">
+                <div className="font-body text-[0.9rem] sm:text-[0.95rem] text-white">
                   <div>RABBANI ALI — <a href="tel:+919504322143" className="hover:text-white">+91 9504322143</a></div>
                   <div>MD Rizwan — <a href="tel:+917798469191" className="hover:text-white">+91 77984 69191</a></div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-white/85 mt-0.5" aria-hidden="true" />
-                <div className="font-body text-[0.95rem]">
+                <div className="font-body text-[0.9rem] sm:text-[0.95rem] text-white max-w-[90%] sm:max-w-none">
                   PHOENIX PARAGON PLAZA, 1ST FLOOR, OFFICE NO. 1B/53, LBS MARG, KURLA WEST, MUMBAI – 400070
                 </div>
               </div>
