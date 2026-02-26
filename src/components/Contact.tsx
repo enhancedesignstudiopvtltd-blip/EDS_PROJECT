@@ -59,6 +59,12 @@ const Contact = () => {
       link: null,
     },
     {
+      icon: MapPin,
+      title: 'Satellite Office',
+      value: 'VASHI – NAVI MUMBAI',
+      link: null,
+    },
+    {
       icon: Globe,
       title: 'Website',
       value: 'www.enhancedesignstudio.com',
