@@ -113,23 +113,23 @@ const Navigation = () => {
 
         {/* Mobile Menu with collapsible Services */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-3 sm:mt-4 py-4 bg-background/95 backdrop-blur-lg rounded-lg border border-border animate-fade-up">
+          <div className="md:hidden mt-3 sm:mt-4 py-4 bg-black/70 backdrop-blur-xl rounded-xl border border-white/15 animate-fade-up">
             <div className="flex flex-col space-y-1 px-4">
-              <a href="/" className="font-body font-medium text-primary hover:text-accent transition-colors py-3 border-b border-border/50 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-              <a href={comingSoon ? "/coming-soon" : "/about-us"} className="font-body font-medium text-primary hover:text-accent transition-colors py-3 border-b border-border/50 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>About us</a>
+              <a href="/" className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+              <a href={comingSoon ? "/coming-soon" : "/about-us"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>About us</a>
 
               {/* Mobile: Design & Build link */}
-              <a href={comingSoon ? "/coming-soon" : "/design-build"} className="font-body font-medium text-primary hover:text-black transition-colors py-3 border-b border-border/50 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Design & Build</a>
+              <a href={comingSoon ? "/coming-soon" : "/design-build"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Design & Build</a>
 
               {/* Mobile: Services acts as a link when maintenance is on; otherwise collapsible */}
               {comingSoon ? (
-                <a href="/coming-soon" className="font-body font-medium text-primary hover:text-accent transition-colors py-3 border-b border-border/50 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="/coming-soon" className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>
                   Services
                 </a>
               ) : (
                 <>
                   <button
-                    className="font-body font-medium text-primary py-3 border-b border-border/50 btn-touch flex items-center justify-center gap-2 hover:text-accent"
+                    className="font-body font-medium text-white py-3 border-b border-white/20 btn-touch flex items-center justify-center gap-2 hover:text-accent"
                     onClick={() => setIsMobileServicesOpen((v) => !v)}
                     aria-expanded={isMobileServicesOpen}
                   >
@@ -137,14 +137,14 @@ const Navigation = () => {
                     <span className={`transition-transform ${isMobileServicesOpen ? 'rotate-90' : ''}`}>›</span>
                   </button>
                   {isMobileServicesOpen && (
-                    <div className="bg-gray-100 rounded-md mx-2 mb-2 p-3 animate-fade-up">
+                    <div className="bg-white/5 rounded-md mx-2 mb-2 p-3 animate-fade-up">
                       {servicesCatalog.map((col) => (
                         <div key={col.title} className="mb-4 last:mb-0">
-                          <h4 className="font-heading font-semibold text-primary text-sm mb-2">{col.title}</h4>
+                          <h4 className="font-heading font-semibold text-white text-sm mb-2">{col.title}</h4>
                           <ul className="space-y-1">
                             {col.items.map((it) => (
                               <li key={it}>
-                                <a href="/services" className="block px-2 py-1 rounded-md text-sm font-body text-slate-800 hover:text-emerald-700 hover:underline">
+                                <a href="/services" className="block px-2 py-1 rounded-md text-sm font-body text-white/90 hover:text-accent hover:underline">
                                   {it}
                                 </a>
                               </li>
@@ -157,9 +157,9 @@ const Navigation = () => {
                 </>
               )}
 
-              <a href={comingSoon ? "/coming-soon" : "/#projects"} className="font-body font-medium text-primary hover:text-accent transition-colors py-3 border-b border-border/50 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
-              <a href={comingSoon ? "/coming-soon" : "/#news"} className="font-body font-medium text-primary hover:text-accent transition-colors py-3 border-b border-border/50 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>News & Updates</a>
-              <a href="/contact-us" className="font-body font-medium text-primary hover:text-accent transition-colors py-3 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Contact us</a>
+              <a href={comingSoon ? "/coming-soon" : "/#projects"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+              <a href={comingSoon ? "/coming-soon" : "/#news"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>News & Updates</a>
+              <a href="/contact-us" className="font-body font-medium text-white hover:text-accent transition-colors py-3 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Contact us</a>
             </div>
           </div>
         )}
