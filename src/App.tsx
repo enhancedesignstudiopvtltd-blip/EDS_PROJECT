@@ -13,11 +13,13 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Preloader from "@/components/Preloader";
 import GsapScrollProvider from "@/components/GsapScrollProvider";
+import ComingSoon from "./pages/ComingSoon";
 
 const queryClient = new QueryClient();
 
 const App = () => {
   const [preloadDone, setPreloadDone] = useState(false);
+  const comingSoon = (import.meta.env?.VITE_COMING_SOON ?? 'true') === 'true';
 
   useEffect(() => {
     // Allow forcing intro via ?intro for testing
@@ -54,27 +56,30 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {!preloadDone && (
+        {!comingSoon && !preloadDone && (
           <Preloader onDone={() => setPreloadDone(true)} ttlMs={12 * 60 * 60 * 1000} />
         )}
         <div className={preloadDone ? 'content-enter' : ''}>
           <GsapScrollProvider>
             <BrowserRouter>
               <Routes>
-              {/* Make Consulting the default landing page */}
-              <Route path="/" element={<ConsultingPage />} />
-              {/* Provide an explicit route for Design & Build (previous Index) */}
-              <Route path="/design-build" element={<Index />} />
-              {/* Keep consulting path available too */}
-              <Route path="/consulting" element={<ConsultingPage />} />
-              {/* About Us */}
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/contact-us" element={<ContactUs />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
+              {comingSoon ? (
+                <>
+                  <Route path="*" element={<ComingSoon />} />
+                </>
+              ) : (
+                <>
+                  <Route path="/" element={<ConsultingPage />} />
+                  <Route path="/design-build" element={<Index />} />
+                  <Route path="/consulting" element={<ConsultingPage />} />
+                  <Route path="/about-us" element={<AboutUs />} />
+                  <Route path="/case-studies" element={<CaseStudies />} />
+                  <Route path="/contact-us" element={<ContactUs />} />
+                  <Route path="*" element={<NotFound />} />
+                </>
+              )}
               </Routes>
-              <ChatWidget />
+              {!comingSoon && <ChatWidget />}
             </BrowserRouter>
           </GsapScrollProvider>
         </div>

@@ -28,11 +28,11 @@ const ConsultingHero = () => {
   }, [isMuted]);
 
   return (
-    <section className="relative h-[88vh] md:h-screen flex items-center justify-center overflow-hidden mb-4 md:mb-8">
+    <section className="relative h-dvh flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
           muted={isMuted}
           loop
           autoPlay

@@ -196,6 +196,9 @@ All colors MUST be HSL.
   }
   
   /* Mobile-first responsive utilities */
+  .h-dvh {
+    height: 100dvh;
+  }
   .text-responsive-xl {
     @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }
@@ -216,6 +219,29 @@ All colors MUST be HSL.
   .section-padding {
     @apply py-12 sm:py-16 md:py-20;
   }
+
+  /* Floating glass card animation */
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Shimmer progress bar */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .shimmer-bar {
+    background: linear-gradient(90deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.10) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+  
+  
   
   .container-mobile {
     @apply px-4 sm:px-6 md:px-8;
