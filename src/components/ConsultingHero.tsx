@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import consultingVideo from '@/assets/Preview_live.mp4';
+import ServiceTicker from '@/components/ServiceTicker';
 
 const ConsultingHero = () => {
   const [videoReady, setVideoReady] = useState(false);
@@ -47,6 +48,7 @@ const ConsultingHero = () => {
       </div>
 
       <div className="relative z-10 container mx-auto container-mobile text-center text-white"></div>
+      <ServiceTicker />
     </section>
   );
 };

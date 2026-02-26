@@ -48,9 +48,9 @@ const Navigation = () => {
                   <a href={comingSoon ? "/coming-soon" : "/about-us"} className="px-4 py-3 font-body font-medium text-primary hover:text-accent transition-colors">About us</a>
                 </NavigationMenuItem>
 
-                {/* Link to Design & Build page */}
+                {/* Link to Design services page */}
                 <NavigationMenuItem>
-                  <a href={comingSoon ? "/coming-soon" : "/design-build"} className="px-4 py-3 font-body font-medium text-primary hover:text-black transition-colors">Design & Build</a>
+                  <a href={comingSoon ? "/coming-soon" : "/design-build"} className="px-4 py-3 font-body font-medium text-primary hover:text-black transition-colors">Design services</a>
                 </NavigationMenuItem>
 
                 {/* Services: link to Coming Soon when maintenance is on; otherwise dropdown */}
@@ -118,8 +118,8 @@ const Navigation = () => {
               <a href="/" className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
               <a href={comingSoon ? "/coming-soon" : "/about-us"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>About us</a>
 
-              {/* Mobile: Design & Build link */}
-              <a href={comingSoon ? "/coming-soon" : "/design-build"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Design & Build</a>
+              {/* Mobile: Design services link */}
+              <a href={comingSoon ? "/coming-soon" : "/design-build"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Design services</a>
 
               {/* Mobile: Services acts as a link when maintenance is on; otherwise collapsible */}
               {comingSoon ? (
