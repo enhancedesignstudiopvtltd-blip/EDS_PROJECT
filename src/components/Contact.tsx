@@ -61,38 +61,14 @@ const Contact = () => {
     {
       icon: Globe,
       title: 'Website',
-      value: 'www.designedgemep.com',
-      link: 'https://www.designedgemep.com',
+      value: 'www.enhancedesignstudio.com',
+      link: 'https://www.enhancedesignstudio.com',
     },
     {
       icon: Mail,
-      title: 'Email',
+      title: 'Contact us',
       value: 'Info@enhancedesignstudio.com',
       link: 'mailto:Info@enhancedesignstudio.com',
-    },
-    {
-      icon: Mail,
-      title: 'Email (Rabbani)',
-      value: 'rabbani@enhancedesignstudio.com',
-      link: 'mailto:rabbani@enhancedesignstudio.com',
-    },
-    {
-      icon: Mail,
-      title: 'Email (Rizwan)',
-      value: 'rizwan@enhancedesignstudio.com',
-      link: 'mailto:rizwan@enhancedesignstudio.com',
-    },
-    {
-      icon: Phone,
-      title: 'RABBANI ALI',
-      value: '+91 9504322143',
-      link: 'tel:+919504322143',
-    },
-    {
-      icon: Phone,
-      title: 'MD Rizwan',
-      value: '+91 77984 69191',
-      link: 'tel:+917798469191',
     },
     {
       icon: Clock,
