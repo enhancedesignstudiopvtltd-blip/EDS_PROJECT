@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# Enhance Design Studio Web
 
-## Project info
+Modern React + Vite + TypeScript site for Enhance Design Studio Pvt. Ltd., deployed on Vercel with a glassmorphic UI and video hero.
 
-**URL**: https://lovable.dev/projects/5b3573e0-064e-4131-80be-ea79cf504a18
+## Tech Stack
+- Vite, React, TypeScript
+- Tailwind-style utility classes and shadcn/ui components
+- Framer Motion for animations
+- Vercel for hosting and HTTPS
 
-## How can I edit this code?
+## Getting Started
+1. Install dependencies:
+   - `npm install`
+2. Run locally:
+   - `npm run dev`
+3. Build:
+   - `npm run build`
+4. Preview build:
+   - `npm run preview`
 
-There are several ways of editing your application.
+## Key Features
+- Hero video with Service Ticker at bottom
+- Glassy floating navbar and mobile menu
+- Single “Under Construction” overlay during maintenance with fully hidden content
+- Coming Soon page with cinematic background, contact details, and launch banner
+- Contact page styled as a glassy card (no form, no footer)
 
-**Use Lovable**
+## Maintenance Mode
+The site can show a single Under Construction section when maintenance is on. It reads either environment flag:
+- `VITE_COMING_SOON=true` or
+- `NEXT_PUBLIC_MAINTENANCE_MODE=true`
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5b3573e0-064e-4131-80be-ea79cf504a18) and start prompting.
+When enabled:
+- Homepage renders Hero + one Under Construction block
+- All other sections remain hidden
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Environment Variables
+Do not commit secrets. Create a `.env` or `.env.local` for local development:
 ```
+VITE_COMING_SOON=true|false
+NEXT_PUBLIC_MAINTENANCE_MODE=true|false
+```
+Add any service keys here and configure production variables in Vercel Project Settings → Environment Variables.
 
-**Edit a file directly in GitHub**
+## Deployment (Vercel)
+- Connect the GitHub repository to Vercel
+- Production branch: `main`
+- Vercel auto-provisions HTTPS certificates
+- SPA routes are handled via `vercel.json` rewrites
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Custom Domain
+Keep Zoho Mail records as-is. Point web DNS to Vercel:
+- A record: `@` → `76.76.21.21`
+- CNAME: `www` → `cname.vercel-dns.com`
+Add both domains in Vercel Project → Settings → Domains and set the primary.
 
-**Use GitHub Codespaces**
+## Notable Files
+- `src/components/Hero.tsx` — homepage hero video
+- `src/components/ServiceTicker.tsx` — scrolling services marquee
+- `src/components/UnderConstructionOverlay.tsx` — maintenance overlay
+- `src/pages/Index.tsx` — homepage layout (single overlay when maintenance is on)
+- `src/pages/ComingSoon.tsx` — coming soon experience
+- `src/components/Contact.tsx` — glassy contact card
+- `vercel.json` — SPA fallback rewrites
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Commit & Branch Flow
+- Use feature branches and Pull Requests
+- Example branch: `feature/site-updates`
+- Keep commits descriptive and focused
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5b3573e0-064e-4131-80be-ea79cf504a18) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## License
+Proprietary © Enhance Design Studio Pvt. Ltd.
