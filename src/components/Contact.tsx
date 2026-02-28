@@ -99,7 +99,7 @@ const Contact = () => {
   return (
     <MotionSection id="contact" className="section-padding bg-background" variant="up" stagger data-aos-once="true">
       <div className="container mx-auto container-mobile">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12">
+        <div className="grid grid-cols-1 gap-10 sm:gap-12">
           {/* Left text block */}
           <div className="space-y-4 sm:space-y-6">
             <MotionItem variant="up">
@@ -137,57 +137,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right form */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-heading font-semibold text-primary mb-4">Send us a message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
-              <MotionItem variant="up">
-                <Input
-                id="name"
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Name"
-                required
-                className="font-body input-touch"
-              />
-              </MotionItem>
-              <MotionItem variant="up" delay={0.06}>
-                <Input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Email"
-                required
-                className="font-body input-touch"
-              />
-              </MotionItem>
-              <MotionItem variant="up" delay={0.12}>
-                <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="Phone"
-                required
-                className="font-body input-touch"
-              />
-              </MotionItem>
-              <MotionItem variant="fade" delay={0.18}>
-                <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full btn-touch bg-[#6C5CE7] hover:bg-[#5a4fd6] text-white font-heading font-semibold"
-              >
-                {isSubmitting ? 'Sending…' : 'Send'}
-              </Button>
-              </MotionItem>
-            </form>
-          </div>
         </div>
       </div>
     </MotionSection>
