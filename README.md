@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to EDS project
 
 ## Project info
 
@@ -10,9 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5b3573e0-064e-4131-80be-ea79cf504a18) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -60,11 +58,6 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5b3573e0-064e-4131-80be-ea79cf504a18) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
 
