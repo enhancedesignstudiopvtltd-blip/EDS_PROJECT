@@ -97,46 +97,46 @@ const Contact = () => {
   ];
 
   return (
-    <MotionSection id="contact" className="section-padding bg-background" variant="up" stagger data-aos-once="true">
+    <MotionSection id="contact" className="section-padding bg-transparent" variant="up" stagger data-aos-once="true">
       <div className="container mx-auto container-mobile">
-        <div className="grid grid-cols-1 gap-10 sm:gap-12">
-          {/* Left text block */}
-          <div className="space-y-4 sm:space-y-6">
-            <MotionItem variant="up">
-              <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary">Let’s Build Smart Together</h2>
-            </MotionItem>
-            <MotionItem variant="up" delay={0.06}>
-              <h3 className="text-xl sm:text-2xl font-heading font-semibold text-primary">Let’s Start Your Next Project</h3>
-            </MotionItem>
-            <MotionItem variant="fade" delay={0.12}>
-              <p className="text-base sm:text-lg font-body text-muted-foreground leading-[1.85] max-w-[65ch]">
-                Whether you’re planning a new commercial development, upgrading an industrial facility, or exploring sustainable design options, our engineering team is ready to help. Tell us your goals and challenges, and we’ll recommend solutions tailored to your timeline and performance targets.
-              </p>
-            </MotionItem>
-            <div>
-              <MotionItem variant="up" delay={0.18}>
-                <h4 className="text-lg sm:text-xl font-heading font-semibold text-primary mb-3">Contact Information</h4>
+        <div className="flex justify-center">
+          <div className="w-full max-w-3xl bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-8 text-white shadow-2xl">
+            <div className="space-y-4 sm:space-y-6">
+              <MotionItem variant="up">
+                <h2 className="text-3xl sm:text-4xl font-heading font-bold">Let’s Build Smart Together</h2>
               </MotionItem>
-              <div className="space-y-3">
-                {contactInfo.map((info, index) => (
-                  <MotionItem key={index} variant="up" delay={0.2 + index * 0.06} className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-full bg-black/80 text-white flex items-center justify-center">
-                      <info.icon className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-heading font-semibold text-primary text-sm sm:text-base">{info.title}</div>
-                      {info.link ? (
-                        <a href={info.link} className="font-body text-sm sm:text-base text-primary hover:underline">{info.value}</a>
-                      ) : (
-                        <p className="font-body text-sm sm:text-base text-primary/80">{info.value}</p>
-                      )}
-                    </div>
-                  </MotionItem>
-                ))}
+              <MotionItem variant="up" delay={0.06}>
+                <h3 className="text-xl sm:text-2xl font-heading font-semibold">Let’s Start Your Next Project</h3>
+              </MotionItem>
+              <MotionItem variant="fade" delay={0.12}>
+                <p className="text-base sm:text-lg font-body text-white/80 leading-[1.85] max-w-[65ch]">
+                  Whether you’re planning a new commercial development, upgrading an industrial facility, or exploring sustainable design options, our engineering team is ready to help. Tell us your goals and challenges, and we’ll recommend solutions tailored to your timeline and performance targets.
+                </p>
+              </MotionItem>
+              <div>
+                <MotionItem variant="up" delay={0.18}>
+                  <h4 className="text-lg sm:text-xl font-heading font-semibold mb-3">Contact Information</h4>
+                </MotionItem>
+                <div className="space-y-3">
+                  {contactInfo.map((info, index) => (
+                    <MotionItem key={index} variant="up" delay={0.2 + index * 0.06} className="flex items-start gap-3">
+                      <div className="w-9 h-9 rounded-full bg-black/80 text-white flex items-center justify-center">
+                        <info.icon className="w-4 h-4" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-heading font-semibold text-sm sm:text-base">{info.title}</div>
+                        {info.link ? (
+                          <a href={info.link} className="font-body text-sm sm:text-base text-white hover:underline">{info.value}</a>
+                        ) : (
+                          <p className="font-body text-sm sm:text-base text-white/80">{info.value}</p>
+                        )}
+                      </div>
+                    </MotionItem>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </MotionSection>
