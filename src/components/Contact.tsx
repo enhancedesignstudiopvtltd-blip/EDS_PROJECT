@@ -77,6 +77,18 @@ const Contact = () => {
       link: 'mailto:Info@enhancedesignstudio.com',
     },
     {
+      icon: Phone,
+      title: 'Phone',
+      value: '+91 9504322143',
+      link: 'tel:+919504322143',
+    },
+    {
+      icon: Phone,
+      title: 'Phone',
+      value: '+91 77984 69191',
+      link: 'tel:+917798469191',
+    },
+    {
       icon: Clock,
       title: 'Business Hours',
       value: 'Mon–Fri: 9:00 AM – 6:00 PM · Sat: 9:00 AM – 2:00 PM',

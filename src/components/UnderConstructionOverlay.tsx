@@ -6,10 +6,8 @@ type Props = {
 
 const UnderConstructionOverlay: React.FC<PropsWithChildren<Props>> = ({ children, sectionName }) => {
   return (
-    <div style={{ position: 'relative', overflow: 'hidden' }}>
-      <div style={{ filter: 'blur(8px)', opacity: 0.4, pointerEvents: 'none', userSelect: 'none' }}>
-        {children}
-      </div>
+    <div style={{ position: 'relative', overflow: 'hidden', minHeight: '70vh' }}>
+      <div style={{ display: 'none' }}>{children}</div>
       <div
         style={{
           position: 'absolute',
@@ -18,7 +16,7 @@ const UnderConstructionOverlay: React.FC<PropsWithChildren<Props>> = ({ children
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'rgba(0,0,0,0.5)',
+          background: 'rgba(0,0,0,0.85)',
           backdropFilter: 'blur(4px)',
           zIndex: 10,
         }}

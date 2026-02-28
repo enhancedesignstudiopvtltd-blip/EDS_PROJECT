@@ -234,9 +234,9 @@ const ComingSoon = () => {
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-white/85 mt-0.5" aria-hidden="true" />
-                <div className="font-body text-[0.9rem] sm:text-[0.95rem] text-white">
-                  <div>RABBANI ALI — <a href="tel:+919504322143" className="hover:text-white">+91 9504322143</a></div>
-                  <div>MD Rizwan — <a href="tel:+917798469191" className="hover:text-white">+91 77984 69191</a></div>
+                <div className="font-body text-[0.9rem] sm:text-[0.95rem] text-white flex flex-col">
+                  <a href="tel:+919504322143" className="hover:text-white">+91 9504322143</a>
+                  <a href="tel:+917798469191" className="hover:text-white">+91 77984 69191</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">

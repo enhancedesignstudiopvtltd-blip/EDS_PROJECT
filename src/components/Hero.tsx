@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import GetQuoteForm from '@/components/GetQuoteForm';
@@ -6,15 +6,29 @@ import homeVideo from '@/assets/Preview_live.mp4';
 
 const Hero = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const attemptPlay = () => v.play().catch(() => {});
+    attemptPlay();
+    const unlock = () => {
+      attemptPlay();
+      document.removeEventListener('pointerdown', unlock);
+      document.removeEventListener('touchstart', unlock);
+    };
+    document.addEventListener('pointerdown', unlock, { once: true });
+    document.addEventListener('touchstart', unlock, { once: true });
+  }, []);
   return (
     <>
       <section id="home" className="relative h-dvh flex items-center justify-center overflow-hidden">
       {/* Background Media: simple HTML5 video */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           src={homeVideo}
           className="absolute inset-0 w-full h-full object-cover object-center"
-          muted
           loop
           autoPlay
           playsInline

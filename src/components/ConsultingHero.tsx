@@ -4,7 +4,7 @@ import ServiceTicker from '@/components/ServiceTicker';
 
 const ConsultingHero = () => {
   const [videoReady, setVideoReady] = useState(false);
-  const [isMuted] = useState(true);
+  const [isMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -14,7 +14,15 @@ const ConsultingHero = () => {
     const markReady = () => {
       setVideoReady(true);
       v.muted = isMuted;
-      v.play().catch(() => {});
+      const attemptPlay = () => v.play().catch(() => {});
+      attemptPlay();
+      const unlock = () => {
+        attemptPlay();
+        document.removeEventListener('pointerdown', unlock);
+        document.removeEventListener('touchstart', unlock);
+      };
+      document.addEventListener('pointerdown', unlock, { once: true });
+      document.addEventListener('touchstart', unlock, { once: true });
     };
 
     if (v.readyState >= 2) markReady();
