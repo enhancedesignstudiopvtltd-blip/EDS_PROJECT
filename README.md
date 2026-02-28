@@ -29,13 +29,13 @@ Modern React + Vite + TypeScript site for Enhance Design Studio Pvt. Ltd., deplo
 The site can show a single Under Construction section when maintenance is on. It reads either environment flag:
 - `VITE_COMING_SOON=true` or
 - `NEXT_PUBLIC_MAINTENANCE_MODE=true`
-
+<<<<<<< HEAD
 When enabled:
 - Homepage renders Hero + one Under Construction block
 - All other sections remain hidden
 
 ## Environment Variables
-Do not commit secrets. Create a `.env` or `.env.local` for local development:
+>>>>>>> 5f21a7c3d63fd1d656049114cff29c5218afdc88
 ```
 VITE_COMING_SOON=true|false
 NEXT_PUBLIC_MAINTENANCE_MODE=true|false
@@ -67,6 +67,5 @@ Add both domains in Vercel Project → Settings → Domains and set the primary.
 - Use feature branches and Pull Requests
 - Example branch: `feature/site-updates`
 - Keep commits descriptive and focused
-
+<<<<<<< HEAD
 ## License
-Proprietary © Enhance Design Studio Pvt. Ltd.
