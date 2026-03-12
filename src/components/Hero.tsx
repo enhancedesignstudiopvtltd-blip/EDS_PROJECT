@@ -19,6 +19,10 @@ const Hero = () => {
     };
     document.addEventListener('pointerdown', unlock, { once: true });
     document.addEventListener('touchstart', unlock, { once: true });
+    return () => {
+      document.removeEventListener('pointerdown', unlock);
+      document.removeEventListener('touchstart', unlock);
+    };
   }, []);
   return (
     <>

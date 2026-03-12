@@ -291,6 +291,31 @@ All colors MUST be HSL.
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
   top: 12px;
 }
+.nav-premium.light {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(2, 6, 23, 0.10);
+  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.10);
+  backdrop-filter: blur(24px) saturate(1.25);
+  -webkit-backdrop-filter: blur(24px) saturate(1.25);
+}
+.nav-premium.light.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(2, 6, 23, 0.14);
+  box-shadow: 0 22px 58px rgba(2, 6, 23, 0.14);
+}
+.nav-premium.light a {
+  color: rgba(15, 23, 42, 0.86);
+}
+.nav-premium.light a:hover {
+  color: rgba(2, 6, 23, 0.96);
+  background: rgba(2, 6, 23, 0.06);
+}
+.nav-premium.light a.active {
+  color: #00C2FF;
+}
+.nav-premium.light .navbar-logo {
+  filter: none;
+}
 .nav-premium a {
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.85rem;
