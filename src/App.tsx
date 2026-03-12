@@ -73,6 +73,7 @@ const App = () => {
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/contact-us" element={<ContactUs />} />
                 <Route path="/services" element={comingSoon ? <ComingSoon /> : <Index />} />
+                <Route path="/sustainable" element={<Index />} />
                 <Route path="/projects" element={comingSoon ? <ComingSoon /> : <Index />} />
                 <Route path="/news" element={comingSoon ? <ComingSoon /> : <Index />} />
                 <Route path="/coming-soon" element={<ComingSoon />} />

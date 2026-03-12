@@ -50,17 +50,17 @@ const Navigation = () => {
 
                 {/* Link to Design services page */}
                 <NavigationMenuItem>
-                  <a href={comingSoon ? "/coming-soon" : "/design-build"} className="px-4 py-3 font-body font-medium text-primary hover:text-black transition-colors">Design services</a>
+                  <a href={comingSoon ? "/coming-soon" : "/design-build"} className="px-4 py-3 font-body font-medium text-primary hover:text-black transition-colors">Design Services</a>
                 </NavigationMenuItem>
 
-                {/* Services: link to Coming Soon when maintenance is on; otherwise dropdown */}
+                {/* Sustainable: link to Sustainable page when maintenance is on; otherwise dropdown */}
                 {comingSoon ? (
                   <NavigationMenuItem>
-                    <a href="/coming-soon" className="px-4 py-3 font-body font-medium text-primary hover:text-accent transition-colors">Services</a>
+                    <a href="/sustainable" className="px-4 py-3 font-body font-medium text-primary hover:text-accent transition-colors">Sustainable</a>
                   </NavigationMenuItem>
                 ) : (
                   <NavigationMenuItem className="dropdown relative">
-                    <NavigationMenuTrigger className="px-4 py-3 font-body font-medium text-primary">Services</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="px-4 py-3 font-body font-medium text-primary">Sustainable</NavigationMenuTrigger>
                     <NavigationMenuContent className="w-full flex justify-center bg-gray-100 shadow-xl border border-gray-200">
                       <div className="dropdown-content">
                         {servicesCatalog.map((col) => (
@@ -69,7 +69,7 @@ const Navigation = () => {
                             <ul>
                               {col.items.map((it) => (
                                 <li key={it}>
-                                  <a href="/services" className="flex items-center gap-2 px-2 py-1 rounded-md text-sm font-body text-slate-800 hover:text-black hover:underline transition-colors">
+                                  <a href="/sustainable" className="flex items-center gap-2 px-2 py-1 rounded-md text-sm font-body text-slate-800 hover:text-black hover:underline transition-colors">
                                     <ChevronRight className="w-4 h-4 text-gray-600" />
                                     <span>{it}</span>
                                   </a>
@@ -119,12 +119,12 @@ const Navigation = () => {
               <a href={comingSoon ? "/coming-soon" : "/about-us"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>About us</a>
 
               {/* Mobile: Design services link */}
-              <a href={comingSoon ? "/coming-soon" : "/design-build"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Design services</a>
+              <a href={comingSoon ? "/coming-soon" : "/design-build"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Design Services</a>
 
-              {/* Mobile: Services acts as a link when maintenance is on; otherwise collapsible */}
+              {/* Mobile: Sustainable acts as a link when maintenance is on; otherwise collapsible */}
               {comingSoon ? (
-                <a href="/coming-soon" className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>
-                  Services
+                <a href="/sustainable" className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>
+                  Sustainable
                 </a>
               ) : (
                 <>
@@ -133,7 +133,7 @@ const Navigation = () => {
                     onClick={() => setIsMobileServicesOpen((v) => !v)}
                     aria-expanded={isMobileServicesOpen}
                   >
-                    Services
+                    Sustainable
                     <span className={`transition-transform ${isMobileServicesOpen ? 'rotate-90' : ''}`}>›</span>
                   </button>
                   {isMobileServicesOpen && (
@@ -144,7 +144,7 @@ const Navigation = () => {
                           <ul className="space-y-1">
                             {col.items.map((it) => (
                               <li key={it}>
-                                <a href="/services" className="block px-2 py-1 rounded-md text-sm font-body text-white/90 hover:text-accent hover:underline">
+                                <a href="/sustainable" className="block px-2 py-1 rounded-md text-sm font-body text-white/90 hover:text-accent hover:underline">
                                   {it}
                                 </a>
                               </li>
