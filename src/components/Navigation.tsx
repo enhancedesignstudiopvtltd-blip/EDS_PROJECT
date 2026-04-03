@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
-import edsLogoPng from '@/EDS Pvt. Ltd..png';
+import edsLogoPrimaryPng from '@/EDS_1.png';
+import edsLogoFallbackPng from '@/EDS Pvt. Ltd..png';
 import servicesCatalog from '@/data/servicesCatalog';
 import {
   NavigationMenu,
@@ -14,7 +15,7 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [logoSrc, setLogoSrc] = useState('/EDS_1.png');
+  const [logoSrc, setLogoSrc] = useState(edsLogoPrimaryPng);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -35,7 +36,7 @@ const Navigation = () => {
               src={logoSrc}
               alt="Enhance Design Studio Pvt. Ltd."
               className="navbar-logo"
-              onError={() => setLogoSrc(edsLogoPng)}
+              onError={() => setLogoSrc(edsLogoFallbackPng)}
             />
           </a>
 
