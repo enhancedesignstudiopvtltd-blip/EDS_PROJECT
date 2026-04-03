@@ -53,14 +53,14 @@ const Navigation = () => {
                   <a href={comingSoon ? "/coming-soon" : "/design-build"} className="px-4 py-3 font-body font-medium text-primary hover:text-black transition-colors">Design Services</a>
                 </NavigationMenuItem>
 
-                {/* Sustainable: link to Sustainable page when maintenance is on; otherwise dropdown */}
+                {/* Sustainability: link to Sustainable page when maintenance is on; otherwise dropdown */}
                 {comingSoon ? (
                   <NavigationMenuItem>
-                    <a href="/sustainable" className="px-4 py-3 font-body font-medium text-primary hover:text-accent transition-colors">Sustainable</a>
+                    <a href="/sustainable" className="px-4 py-3 font-body font-medium text-primary hover:text-accent transition-colors">Sustainability</a>
                   </NavigationMenuItem>
                 ) : (
                   <NavigationMenuItem className="dropdown relative">
-                    <NavigationMenuTrigger className="px-4 py-3 font-body font-medium text-primary">Sustainable</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="px-4 py-3 font-body font-medium text-primary">Sustainability</NavigationMenuTrigger>
                     <NavigationMenuContent className="w-full flex justify-center bg-gray-100 shadow-xl border border-gray-200">
                       <div className="dropdown-content">
                         {servicesCatalog.map((col) => (
@@ -121,10 +121,10 @@ const Navigation = () => {
               {/* Mobile: Design services link */}
               <a href={comingSoon ? "/coming-soon" : "/design-build"} className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>Design Services</a>
 
-              {/* Mobile: Sustainable acts as a link when maintenance is on; otherwise collapsible */}
+              {/* Mobile: Sustainability acts as a link when maintenance is on; otherwise collapsible */}
               {comingSoon ? (
                 <a href="/sustainable" className="font-body font-medium text-white hover:text-accent transition-colors py-3 border-b border-white/20 btn-touch text-center" onClick={() => setIsMobileMenuOpen(false)}>
-                  Sustainable
+                  Sustainability
                 </a>
               ) : (
                 <>
@@ -133,7 +133,7 @@ const Navigation = () => {
                     onClick={() => setIsMobileServicesOpen((v) => !v)}
                     aria-expanded={isMobileServicesOpen}
                   >
-                    Sustainable
+                    Sustainability
                     <span className={`transition-transform ${isMobileServicesOpen ? 'rotate-90' : ''}`}>›</span>
                   </button>
                   {isMobileServicesOpen && (
