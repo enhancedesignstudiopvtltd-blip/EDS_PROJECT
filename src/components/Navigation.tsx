@@ -14,6 +14,7 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [logoSrc, setLogoSrc] = useState('/EDS_1.png');
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -31,9 +32,10 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <a href="/" className="flex items-center">
             <img
-              src={edsLogoPng}
+              src={logoSrc}
               alt="Enhance Design Studio Pvt. Ltd."
               className="navbar-logo"
+              onError={() => setLogoSrc(edsLogoPng)}
             />
           </a>
 
